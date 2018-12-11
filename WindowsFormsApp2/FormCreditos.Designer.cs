@@ -47,9 +47,9 @@
             this.lbIpPublica.Location = new System.Drawing.Point(12, 82);
             this.lbIpPublica.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbIpPublica.Name = "lbIpPublica";
-            this.lbIpPublica.Size = new System.Drawing.Size(157, 19);
+            this.lbIpPublica.Size = new System.Drawing.Size(145, 19);
             this.lbIpPublica.TabIndex = 11;
-            this.lbIpPublica.Text = "Diseñado por:  D3fau4";
+            this.lbIpPublica.Text = "Designed by: D3fau4";
             // 
             // materialLabel1
             // 
@@ -60,9 +60,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(12, 101);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(166, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(147, 19);
             this.materialLabel1.TabIndex = 12;
-            this.materialLabel1.Text = "Programado por: Urferu";
+            this.materialLabel1.Text = "Developed by: Urferu";
             // 
             // materialLabel2
             // 
@@ -73,9 +73,9 @@
             this.materialLabel2.Location = new System.Drawing.Point(12, 120);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(204, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(171, 19);
             this.materialLabel2.TabIndex = 13;
-            this.materialLabel2.Text = "Lista de sevidores por: Clock";
+            this.materialLabel2.Text = "List of servers by: Clock";
             // 
             // materialLabel3
             // 
@@ -86,9 +86,9 @@
             this.materialLabel3.Location = new System.Drawing.Point(12, 139);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(184, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(204, 19);
             this.materialLabel3.TabIndex = 14;
-            this.materialLabel3.Text = "Distribuido y apoyado por:";
+            this.materialLabel3.Text = "Distributed and supported by:";
             // 
             // materialLabel4
             // 
@@ -99,9 +99,9 @@
             this.materialLabel4.Location = new System.Drawing.Point(12, 187);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(95, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(99, 19);
             this.materialLabel4.TabIndex = 15;
-            this.materialLabel4.Text = "Siguenos en:";
+            this.materialLabel4.Text = "Follow us on:";
             // 
             // linkLabel1
             // 

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Drawing;
-using System.Diagnostics;
-using System.Collections.Generic;
 using MaterialSkin;
+using System.Drawing;
+using System.Net.Cache;
+using System.Diagnostics;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
 
 
@@ -18,6 +19,7 @@ namespace WindowsFormsApp2
         string identificadorIp = "";
         Process bat;
         MaterialSkinManager m;
+        HttpRequestCachePolicy noCachePolicy;
 
         public FormPrincipal()
         {
@@ -26,6 +28,9 @@ namespace WindowsFormsApp2
             m.AddFormToManage(this);
             m.Theme = MaterialSkinManager.Themes.LIGHT;
             m.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red700, Primary.Red600, Accent.Red400, TextShade.WHITE);
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            noCachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
             bat = new Process();
             LinkLabel.Link linkRadikal = new LinkLabel.Link();
             linkRadikal.LinkData = "http://www.letmecheck.it/mtu-test.php";
@@ -35,9 +40,9 @@ namespace WindowsFormsApp2
         private void Form1_Load(object sender, EventArgs e)
         {
             GetActualVersion();
+            LoadPmtu();
             txtVersion.Text = versionActual;
             lbStatus.BringToFront();
-            lbIpPublica.Text = "Mi ip pública es: " + GetExternalIPAddress();
         }
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
@@ -68,25 +73,14 @@ namespace WindowsFormsApp2
             }
         }
 
-        /// <summary>
-        /// Obtiene la ip pública
-        /// </summary>
-        /// <returns>regresa el valor de la ip publica</returns>
-        static string GetExternalIPAddress()
+        private void LoadPmtu()
         {
-            String address = "";
-            WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
-            using (WebResponse response = request.GetResponse())
-            using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+            if(File.Exists("pmtu.txt"))
             {
-                address = stream.ReadToEnd();
+                StreamReader swPmtu = new StreamReader("pmtu.txt");
+                txtPmtu.Text = swPmtu.ReadToEnd().Trim();
+                swPmtu.Close();
             }
-
-            int first = address.IndexOf("Address: ") + 9;
-            int last = address.LastIndexOf("</body>");
-            address = address.Substring(first, last - first);
-
-            return address;
         }
 
         /// <summary>
@@ -253,7 +247,9 @@ namespace WindowsFormsApp2
             {
                 lbStatus.Text = "Lanzando lan-play...";
                 this.Refresh();
-                parametros = "--relay-server-addr " + dgvRecientes.CurrentRow.Cells[colServidor.Index].Value.ToString().Trim() + ":11451";
+                StreamWriter swPmtu = new StreamWriter("pmtu.txt", false);
+                swPmtu.WriteLine(txtPmtu.Text.Trim());
+                parametros = "--pmtu "+txtPmtu.Text.Trim()+" --relay-server-addr " + dgvRecientes.CurrentRow.Cells[colServidor.Index].Value.ToString().Trim() + ":11451";
                 //Si se encontro identificador lanzamos directamente el identificador a lan-play
                 if (!string.IsNullOrWhiteSpace(identificadorIp))
                 {
@@ -265,6 +261,7 @@ namespace WindowsFormsApp2
                 {
                     parametros = parametros + " --fake-internet";
                 }
+
                 bat.StartInfo = new ProcessStartInfo("lan-play.exe", parametros);
 
                 lbStatus.Text = "Conectando al servidor...";
@@ -274,18 +271,18 @@ namespace WindowsFormsApp2
                 bat.Start();
                 materialRaisedButton1.Enabled = true;
                 materialRaisedButton1.Tag = 1;
-                materialRaisedButton1.Text = "Desconectar";
+                materialRaisedButton1.Text = "Disconnect";
                 m.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green300, Primary.Green200, Accent.Green100, TextShade.WHITE);
                 while (bat.MainWindowHandle.ToInt32() == 0)
                 {
                 }
                 if (bat.MainWindowHandle.ToInt32() > 0)
                 {
+                    WinApi.SetParent(bat.MainWindowHandle, pnDatos.Handle);
                     WinApi.MoveWindow(bat.MainWindowHandle,
                         0, 0,
                         this.pnDatos.Width,
                         this.pnDatos.Height, 1);
-                    WinApi.SetParent(bat.MainWindowHandle, pnDatos.Handle);
                     WinApi.RemoveBorder(bat);
                 }
                 lbStatus.Text = "";
@@ -359,8 +356,7 @@ namespace WindowsFormsApp2
                     catch
                     {
                     }
-                    labelDatos.Text = "Aqui se muestra lo que lanza la consola de lan play";
-                    materialRaisedButton1.Text = "Conectar";
+                    materialRaisedButton1.Text = "Connect";
                     materialRaisedButton1.Tag = 0;
                     m.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red700, Primary.Red600, Accent.Red400, TextShade.WHITE);
                     ActivarDesactivarControles(true);
@@ -443,14 +439,70 @@ namespace WindowsFormsApp2
         }
 
         #region Servidores
+
+        private string DownloadStringServer(string url)
+        {
+            string responseFromServer = string.Empty;
+            var webrequest = (HttpWebRequest)WebRequest.Create(url);
+            webrequest.CachePolicy = noCachePolicy;
+            webrequest.Method = WebRequestMethods.Http.Get;
+        
+            try
+            {
+                using (WebResponse response = webrequest.GetResponse())
+                {
+                    using (System.IO.Stream stream2 = response.GetResponseStream())
+                    {
+                        using (System.IO.StreamReader reader = new System.IO.StreamReader(stream2))
+                        {
+                            responseFromServer = reader.ReadToEnd();
+                            reader.Close();
+                        }
+                        stream2.Close();
+                    }
+                    response.Close();
+                }
+        
+                if (string.IsNullOrWhiteSpace(responseFromServer))
+                {
+                    responseFromServer = "";
+                }
+            }
+            catch
+            {
+            }
+            return responseFromServer;
+        }
         private void cargaGrids_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            List<string> servers = new List<string>();
             string latencia = "";
             string estado = "";
             string server = "";
             string ubicacion = "";
             int conectados = 0;
             int indice = 0;
+            string serversDatos = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/Servers/Servers.txt");
+            if(!string.IsNullOrWhiteSpace(serversDatos))
+            {
+                servers.AddRange(serversDatos.Split('\n'));
+            }
+            
+            foreach(string serverInfo in servers)
+            {
+                server = serverInfo.Split(',')[0];
+                ubicacion = serverInfo.Split(',')[1];
+                ObtenerEstatusDatos(server, ref estado, ref latencia);
+                conectados = ObtenerConectados(server);
+                if (conectados > 0)
+                {
+                    estado = "Online";
+                }
+                object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
+                cargaGrids.ReportProgress(indice, (object)datos);
+                indice++;
+            }
+
             if (File.Exists("Servers.txt"))
             {
                 StreamReader srArchivo = new StreamReader("Servers.txt");
@@ -458,27 +510,31 @@ namespace WindowsFormsApp2
                 string leido = srArchivo.ReadLine();
                 while (!string.IsNullOrWhiteSpace(leido))
                 {
-                    if (leido.Split(',').Length > 2)
+                    if (!servers.Contains(leido))
                     {
-                        server = leido.Split(',')[1];
-                        ubicacion = leido.Split(',')[3];
-                    }
-                    else
-                    {
-                        server = leido.Split(',')[0];
-                        ubicacion = leido.Split(',')[1];
-                    }
-                    ObtenerEstatusDatos(server, ref estado, ref latencia);
-                    conectados = ObtenerConectados(server);
-                    if(conectados > 0)
-                    {
-                        estado = "Online";
-                    }
-                    object[] datos= new object[] { server, ubicacion, estado, conectados, latencia};
-                    cargaGrids.ReportProgress(indice, (object) datos);
+                        servers.Add(leido);
+                        if (leido.Split(',').Length > 2)
+                        {
+                            server = leido.Split(',')[1];
+                            ubicacion = leido.Split(',')[3];
+                        }
+                        else
+                        {
+                            server = leido.Split(',')[0];
+                            ubicacion = leido.Split(',')[1];
+                        }
+                        ObtenerEstatusDatos(server, ref estado, ref latencia);
+                        conectados = ObtenerConectados(server);
+                        if (conectados > 0)
+                        {
+                            estado = "Online";
+                        }
+                        object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
+                        cargaGrids.ReportProgress(indice, (object)datos);
 
-                    leido = srArchivo.ReadLine();
-                    indice++;
+                        leido = srArchivo.ReadLine();
+                        indice++;
+                    }
                 }
                 srArchivo.Close();
             }
@@ -502,14 +558,14 @@ namespace WindowsFormsApp2
         private void cargaGrids_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             materialRaisedButton2.Enabled = true;
-            materialLabel6.Text = "Servidores";
+            materialLabel6.Text = "Servers";
         }
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
             dgvRecientes.Rows.Clear();
             materialRaisedButton2.Enabled = false;
-            materialLabel6.Text = "Servidores (Cargando...)";
+            materialLabel6.Text = "Servers (Loading...)";
             cargaGrids.RunWorkerAsync();
         }
         #endregion

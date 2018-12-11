@@ -33,11 +33,12 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtVersion = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbStatus = new MaterialSkin.Controls.MaterialLabel();
-            this.lbIpPublica = new MaterialSkin.Controls.MaterialLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtPmtu = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.dgvRecientes = new System.Windows.Forms.DataGridView();
             this.colNumServer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,8 +52,6 @@
             this.pnDatos = new System.Windows.Forms.Panel();
             this.labelDatos = new System.Windows.Forms.Label();
             this.cargaGrids = new System.ComponentModel.BackgroundWorker();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.ckConsola = new MaterialSkin.Controls.MaterialCheckBox();
             this.ckInternet = new MaterialSkin.Controls.MaterialCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
@@ -68,9 +67,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(12, 502);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(141, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(121, 19);
             this.materialLabel1.TabIndex = 7;
-            this.materialLabel1.Text = "Version de Lan-Play";
+            this.materialLabel1.Text = "Lan-Play Version";
             // 
             // txtVersion
             // 
@@ -100,19 +99,6 @@
             this.lbStatus.Size = new System.Drawing.Size(0, 19);
             this.lbStatus.TabIndex = 9;
             // 
-            // lbIpPublica
-            // 
-            this.lbIpPublica.AutoSize = true;
-            this.lbIpPublica.Depth = 0;
-            this.lbIpPublica.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lbIpPublica.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbIpPublica.Location = new System.Drawing.Point(3, 67);
-            this.lbIpPublica.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbIpPublica.Name = "lbIpPublica";
-            this.lbIpPublica.Size = new System.Drawing.Size(130, 19);
-            this.lbIpPublica.TabIndex = 10;
-            this.lbIpPublica.Text = "Mi ip públicca es: ";
-            // 
             // materialRaisedButton3
             // 
             this.materialRaisedButton3.BackColor = System.Drawing.SystemColors.Control;
@@ -124,8 +110,7 @@
             this.materialRaisedButton3.Primary = true;
             this.materialRaisedButton3.Size = new System.Drawing.Size(78, 23);
             this.materialRaisedButton3.TabIndex = 12;
-            this.materialRaisedButton3.Text = "Créditos";
-            this.toolTip1.SetToolTip(this.materialRaisedButton3, "Servidores Recientes");
+            this.materialRaisedButton3.Text = "Credits";
             this.materialRaisedButton3.UseVisualStyleBackColor = false;
             this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
             // 
@@ -140,8 +125,8 @@
             this.materialRaisedButton1.Primary = true;
             this.materialRaisedButton1.Size = new System.Drawing.Size(122, 35);
             this.materialRaisedButton1.TabIndex = 23;
-            this.materialRaisedButton1.Text = "Conectar";
-            this.toolTip1.SetToolTip(this.materialRaisedButton1, "Cenecta al servidor seleccionado");
+            this.materialRaisedButton1.Text = "Conect";
+            this.toolTip1.SetToolTip(this.materialRaisedButton1, "Connect to the selected server");
             this.materialRaisedButton1.UseVisualStyleBackColor = false;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
@@ -156,10 +141,40 @@
             this.materialRaisedButton2.Primary = true;
             this.materialRaisedButton2.Size = new System.Drawing.Size(93, 35);
             this.materialRaisedButton2.TabIndex = 27;
-            this.materialRaisedButton2.Text = "Refrescar Servidores";
-            this.toolTip1.SetToolTip(this.materialRaisedButton2, "Refresca la lista de servidores");
+            this.materialRaisedButton2.Text = "Reload Servers";
+            this.toolTip1.SetToolTip(this.materialRaisedButton2, "Reload the server list");
             this.materialRaisedButton2.UseVisualStyleBackColor = false;
             this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
+            // 
+            // txtPmtu
+            // 
+            this.txtPmtu.Depth = 0;
+            this.txtPmtu.Hint = "0.0.X";
+            this.txtPmtu.Location = new System.Drawing.Point(186, 524);
+            this.txtPmtu.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPmtu.Name = "txtPmtu";
+            this.txtPmtu.PasswordChar = '\0';
+            this.txtPmtu.SelectedText = "";
+            this.txtPmtu.SelectionLength = 0;
+            this.txtPmtu.SelectionStart = 0;
+            this.txtPmtu.Size = new System.Drawing.Size(41, 23);
+            this.txtPmtu.TabIndex = 29;
+            this.txtPmtu.Text = "1470";
+            this.toolTip1.SetToolTip(this.txtPmtu, "mtu that will be used for the connection,");
+            this.txtPmtu.UseSystemPasswordChar = false;
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.linkLabel2.Location = new System.Drawing.Point(186, 503);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(41, 18);
+            this.linkLabel2.TabIndex = 30;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "MTU";
+            this.toolTip1.SetToolTip(this.linkLabel2, "Redirect to a tool to validate your ideal mtu");
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // materialLabel2
             // 
@@ -247,9 +262,9 @@
             this.materialLabel6.Location = new System.Drawing.Point(31, 91);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(170, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(138, 19);
             this.materialLabel6.TabIndex = 20;
-            this.materialLabel6.Text = "Servidores (Cargando...)";
+            this.materialLabel6.Text = "Servers (Loading...)";
             // 
             // lblLanPlay
             // 
@@ -281,9 +296,9 @@
             this.labelDatos.ForeColor = System.Drawing.Color.White;
             this.labelDatos.Location = new System.Drawing.Point(4, 4);
             this.labelDatos.Name = "labelDatos";
-            this.labelDatos.Size = new System.Drawing.Size(342, 18);
+            this.labelDatos.Size = new System.Drawing.Size(287, 18);
             this.labelDatos.TabIndex = 28;
-            this.labelDatos.Text = "Aqui se muestra lo que lanza la consola de lan play";
+            this.labelDatos.Text = "Here is what launches the lan play console";
             // 
             // cargaGrids
             // 
@@ -292,51 +307,21 @@
             this.cargaGrids.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.cargaGrids_ProgressChanged);
             this.cargaGrids.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.cargaGrids_RunWorkerCompleted);
             // 
-            // materialSingleLineTextField1
-            // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "0.0.X";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(186, 524);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(41, 23);
-            this.materialSingleLineTextField1.TabIndex = 29;
-            this.materialSingleLineTextField1.Text = "1470";
-            this.toolTip1.SetToolTip(this.materialSingleLineTextField1, "mtu que se utilizará para la conexion,\r\nseleccionar el ideal sirve para reducir e" +
-        "l lag.");
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.linkLabel2.Location = new System.Drawing.Point(186, 503);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(41, 18);
-            this.linkLabel2.TabIndex = 30;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "MTU";
-            this.toolTip1.SetToolTip(this.linkLabel2, "Redirige a una herramienta para validar tu mtu ideal");
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
-            // 
             // ckConsola
             // 
             this.ckConsola.AutoSize = true;
             this.ckConsola.Depth = 0;
-            this.ckConsola.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.ckConsola.Font = new System.Drawing.Font("Roboto", 10F);
             this.ckConsola.Location = new System.Drawing.Point(230, 524);
             this.ckConsola.Margin = new System.Windows.Forms.Padding(0);
             this.ckConsola.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckConsola.MouseState = MaterialSkin.MouseState.HOVER;
             this.ckConsola.Name = "ckConsola";
             this.ckConsola.Ripple = true;
-            this.ckConsola.Size = new System.Drawing.Size(130, 30);
+            this.ckConsola.Size = new System.Drawing.Size(118, 30);
             this.ckConsola.TabIndex = 31;
-            this.ckConsola.Text = "Mostrar consola";
+            this.ckConsola.Text = "Show Console";
+            this.toolTip1.SetToolTip(this.ckConsola, "Show the information of the lan-play console");
             this.ckConsola.UseVisualStyleBackColor = true;
             this.ckConsola.CheckedChanged += new System.EventHandler(this.ckConsola_CheckedChanged);
             // 
@@ -346,7 +331,7 @@
             this.ckInternet.Checked = true;
             this.ckInternet.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckInternet.Depth = 0;
-            this.ckInternet.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.ckInternet.Font = new System.Drawing.Font("Roboto", 10F);
             this.ckInternet.Location = new System.Drawing.Point(230, 499);
             this.ckInternet.Margin = new System.Windows.Forms.Padding(0);
             this.ckInternet.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -366,7 +351,7 @@
             this.Controls.Add(this.ckInternet);
             this.Controls.Add(this.ckConsola);
             this.Controls.Add(this.linkLabel2);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.txtPmtu);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.pnDatos);
             this.Controls.Add(this.lblLanPlay);
@@ -376,7 +361,6 @@
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtVersion);
             this.Controls.Add(this.materialRaisedButton3);
-            this.Controls.Add(this.lbIpPublica);
             this.Controls.Add(this.lbStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(7, 227);
@@ -400,7 +384,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtVersion;
         private MaterialSkin.Controls.MaterialLabel lbStatus;
-        private MaterialSkin.Controls.MaterialLabel lbIpPublica;
         private System.Windows.Forms.ToolTip toolTip1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
@@ -418,7 +401,7 @@
         private System.Windows.Forms.Label labelDatos;
         private System.ComponentModel.BackgroundWorker cargaGrids;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPmtu;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private MaterialSkin.Controls.MaterialCheckBox ckConsola;
         private MaterialSkin.Controls.MaterialCheckBox ckInternet;
