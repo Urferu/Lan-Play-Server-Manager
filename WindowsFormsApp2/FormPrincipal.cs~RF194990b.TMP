@@ -1,0 +1,385 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Diagnostics;
+using System.Management;
+using MaterialSkin;
+using MaterialSkin.Controls;
+
+
+namespace WindowsFormsApp2
+{
+    public partial class FormPrincipal : MaterialForm
+    {
+        string versionActual = "v0.0.4";
+        string identificadorIp = "";
+        Process bat;
+        FormRecientes formularioRecientes;
+        ListBox lbServidoresRecientes;
+        MaterialSkinManager m;
+
+        public FormPrincipal()
+        {
+            InitializeComponent();
+            m = MaterialSkinManager.Instance;
+            m.AddFormToManage(this);
+            m.Theme = MaterialSkinManager.Themes.LIGHT;
+            m.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red700, Primary.Red600, Accent.Red400, TextShade.WHITE);
+            bat = new Process();
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            VerifyWinPcapInstalled();
+            formularioRecientes = new FormRecientes();
+            lbServidoresRecientes = formularioRecientes.Recents;
+            GetRecentsServers();
+            GetActualVersion();
+            txtVersion.Text = versionActual;
+            lbStatus.BringToFront();
+            lbIpPublica.Text = "Mi ip pública es: " + GetExternalIPAddress();
+        }
+
+        #region Inicial
+
+        /// <summary>
+        /// Verifica si se encuentra instalado WinPcap, si no se encarga de ejecutar el instalador e instalarlo
+        /// </summary>
+        private void VerifyWinPcapInstalled()
+        {
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\WinPcap") && !Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\WinPcap"))
+            {
+                MessageBox.Show("No se encontro WinPcap instalado, se realizará la instalación antes de ejecutar el programa");
+                FileStream fsArchivo = new FileStream("wpcap.exe", FileMode.Create);
+                fsArchivo.Write(global::WindowsFormsApp2.Properties.Resources.WinPcap_4_1_3, 0, global::WindowsFormsApp2.Properties.Resources.WinPcap_4_1_3.Length);
+                fsArchivo.Close();
+
+                System.Diagnostics.Process bat = new System.Diagnostics.Process();
+                bat.StartInfo = new System.Diagnostics.ProcessStartInfo("wpcap.exe");
+                bat.Start();
+                bat.WaitForExit();
+                File.Delete("wpcap.exe");
+            }
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\WinPcap") && !Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\WinPcap"))
+            {
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// Consulta los servidores recientes
+        /// </summary>
+        private void GetRecentsServers()
+        {
+            if (File.Exists("ServidoresRecientes.dat"))
+            {
+                StreamReader srArchivo = new StreamReader("ServidoresRecientes.dat");
+
+                string leido = srArchivo.ReadLine();
+                while (!string.IsNullOrWhiteSpace(leido))
+                {
+                    lbServidoresRecientes.Items.Add(leido);
+                    leido = srArchivo.ReadLine();
+                }
+                srArchivo.Close();
+            }
+        }
+
+        /// <summary>
+        /// Consulta la version actual utilizada de lan-play
+        /// </summary>
+        private void GetActualVersion()
+        {
+            if (File.Exists("versionActual.dat"))
+            {
+                StreamReader srArchivo = new StreamReader("versionActual.dat");
+                string leer = srArchivo.ReadLine();
+                if (!string.IsNullOrWhiteSpace(leer))
+                {
+                    versionActual = leer;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Obtiene la ip pública
+        /// </summary>
+        /// <returns>regresa el valor de la ip publica</returns>
+        static string GetExternalIPAddress()
+        {
+            String address = "";
+            WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
+            using (WebResponse response = request.GetResponse())
+            using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+            {
+                address = stream.ReadToEnd();
+            }
+
+            int first = address.IndexOf("Address: ") + 9;
+            int last = address.LastIndexOf("</body>");
+            address = address.Substring(first, last - first);
+
+            return address;
+        }
+
+        #endregion
+
+        private void ActivarDesactivarControles(bool accion)
+        {
+            materialRaisedButton1.Enabled = accion;
+            materialRaisedButton2.Enabled = accion;
+            //lbServidoresRecientes.Enabled = accion;
+            txtServidor.Enabled = accion;
+            txtVersion.Enabled = accion;
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            bool ejecutar = true;
+            ActivarDesactivarControles(false);
+            if (Convert.ToInt32(materialRaisedButton1.Tag).Equals(0))
+            {
+                if (txtServidor.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("Es necesario capturar una ip o dns o seleccionar de los recientes");
+                    return;
+                }
+
+                try
+                {
+                    if (!File.Exists("lan-play.exe") || (txtVersion.Text.Trim().Length > 0 && !txtVersion.Text.Trim().Equals(versionActual)))
+                    {
+                        versionActual = txtVersion.Text.Trim();
+                        ejecutar = GenerarLanPlay();
+                    }
+
+                    if (ejecutar)
+                    {
+                        GetFunctionalDiviceId();
+                        LaunchLanPlay();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ocurrio un error al crear lan-play.exe");
+                    ActivarDesactivarControles(true);
+                }
+            }
+            else
+            {
+                bat.Close();
+                materialRaisedButton1.Text = "Conectar";
+                materialRaisedButton1.Tag = 0;
+                m.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red700, Primary.Red600, Accent.Red400, TextShade.WHITE);
+            }
+        }
+
+        #region ACTIVAR CLIENTE
+        /// <summary>
+        /// Se encarga de descargar y geberar el archivo lan-play.exe
+        /// </summary>
+        /// <returns>debuelve si se ejecuto correctamente</returns>
+        private bool GenerarLanPlay()
+        {
+            lbStatus.Text = "Descargando lan-play.exe " + versionActual + "...";
+            this.Refresh();
+            string nombreLanPlay = "lan-play-win32.exe";
+            int bufferSize = 1024;
+            byte[] buffer = new byte[bufferSize];
+            int bytesRead = 0;
+            bool cerrar = false;
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
+            if (Environment.Is64BitOperatingSystem)
+            {
+                nombreLanPlay = "lan-play-win64.exe";
+            }
+
+            if (versionActual.Equals("v0.0.3") || versionActual.Equals("v0.0.2") || versionActual.Equals("v0.0.1"))
+            {
+                nombreLanPlay = "lan-play.exe";
+            }
+
+            var webrequest = (HttpWebRequest)WebRequest.Create(
+                string.Format("https://github.com/spacemeowx2/switch-lan-play/releases/download/{0}/{1}", versionActual, nombreLanPlay));
+
+            webrequest.Method = WebRequestMethods.Http.Get;
+            FileStream fileStream = File.Create("lan-play.exe");
+
+            try
+            {
+                using (HttpWebResponse response = (HttpWebResponse)webrequest.GetResponse())
+                {
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        bytesRead = stream.Read(buffer, 0, bufferSize);
+                        if (bytesRead == 0)
+                        {
+                            cerrar = true;
+                        }
+
+                        while (bytesRead != 0)
+                        {
+                            fileStream.Write(buffer, 0, bytesRead);
+                            bytesRead = stream.Read(buffer, 0, bufferSize);
+                        }
+                        stream.Close();
+                    }
+                    response.Close();
+                }
+                if (cerrar)
+                {
+                    MessageBox.Show("No se pudo descargar el archivo, por favor verifique que la versión seleccionada se encuentre disponible en:\n https://github.com/spacemeowx2/switch-lan-play/releases");
+                }
+                else
+                {
+                    StreamWriter version = new StreamWriter("versionActual.dat", false);
+                    version.WriteLine(versionActual);
+                    version.Close();
+                }
+            }
+            catch (WebException wex)
+            {
+                MessageBox.Show("No se pudo descargar el archivo, por favor verifique que la versión seleccionada se encuentre disponible en:\n https://github.com/spacemeowx2/switch-lan-play/releases" + wex.Message);
+                cerrar = true;
+            }
+            finally
+            {
+                fileStream.Close();
+                if (cerrar)
+                {
+                    File.Delete("lan-play.exe");
+                    ActivarDesactivarControles(true);
+                }
+            }
+            return !cerrar;
+        }
+
+        /// <summary>
+        /// Obtiene el identificador correcto del dispositivo de red para lan-play
+        /// </summary>
+        private void GetFunctionalDiviceId()
+        {
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                {
+                    foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && ni.OperationalStatus == OperationalStatus.Up)
+                        {
+                            identificadorIp = "\\Device\\NPF_" + ni.Id;
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// Se encarga de lanzar lan-play
+        /// </summary>
+        private void LaunchLanPlay()
+        {
+            string parametros = string.Empty;
+            try
+            {
+                lbStatus.Text = "Lanzando lan-play...";
+                this.Refresh();
+                if (!bat.HasExited)
+                {
+                    bat.Close();
+                }
+                parametros = "--relay-server-addr " + txtServidor.Text.Trim() + ":11451";
+                //Si se encontro identificador lanzamos directamente el identificador a lan-play
+                if (!string.IsNullOrWhiteSpace(identificadorIp))
+                {
+                    parametros = parametros + " --netif " + identificadorIp;
+                }
+
+                //Si la versión es la 0.0.5 o mayor se agrega el parametro --fake-internet
+                if (!versionActual.Equals("v0.0.3") && !versionActual.Equals("v0.0.2") && !versionActual.Equals("v0.0.1") && !versionActual.Equals("v0.0.4"))
+                {
+                    parametros = parametros + " --fake-internet";
+                }
+                bat.StartInfo = new System.Diagnostics.ProcessStartInfo("lan-play.exe ", parametros);
+
+                lbStatus.Text = "Ejecutando servicio en espera de cierre...";
+                this.Refresh();
+                agregarARecientes();
+                bat.StartInfo.UseShellExecute = false;
+                bat.StartInfo.RedirectStandardOutput = false;
+                bat.StartInfo.RedirectStandardInput = false;
+                bat.StartInfo.CreateNoWindow = true;
+                bat.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                bat.Start();
+                System.Threading.Thread.Sleep(300);
+                materialRaisedButton1.Enabled = true;
+                materialRaisedButton1.Text = "Desconectar";
+                materialRaisedButton1.Tag = 1;
+                m.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green300, Primary.Green200, Accent.Green100, TextShade.WHITE);
+                bat.WaitForExit();
+                ActivarDesactivarControles(true);
+                lbStatus.Text = "";
+                this.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Ocurrio un error al crear lan-play.bat");
+                ActivarDesactivarControles(true);
+            }
+        }
+
+        /// <summary>
+        /// Se encarga de actualizar el archivo de servidores recientes
+        /// </summary>
+        private void agregarARecientes()
+        {
+            bool existeServer = false;
+
+            StreamWriter archivosRecientes = new StreamWriter("ServidoresRecientes.dat", false);
+            for (int i = 0; i < lbServidoresRecientes.Items.Count; i++)
+            {
+                archivosRecientes.WriteLine(lbServidoresRecientes.Items[i].ToString());
+                if (lbServidoresRecientes.Items[i].ToString().Equals(txtServidor.Text.Trim()))
+                {
+                    existeServer = true;
+                }
+            }
+            if (!existeServer && string.IsNullOrWhiteSpace(txtServidor.Text))
+            {
+                lbServidoresRecientes.Items.Add(txtServidor.Text.Trim());
+                archivosRecientes.WriteLine(txtServidor.Text.Trim());
+            }
+            archivosRecientes.Close();
+        }
+
+        #endregion
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            formularioRecientes.Show();
+        }
+    }
+}

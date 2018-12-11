@@ -1,0 +1,14 @@
+usplay.secretalgorithm.com,US-West CA
+38.122.225.132,US - NYC
+nxlan.duckdns.org,US-Northwest WA
+switch.lan-play.com,EU-(France)
+relay1.fadx.co.uk,EU-(UK)
+switch.homelab.tech,EU-(UK)
+bandits.duckdns.org,EU-(Spain)
+memehouse.de,EU-(Germany)
+relay.it-cybergate.club,EU-(Germany)
+euplay.secretalgorithm.com,EU-(Lithuania)
+slp.rush-hour.wo.tc,Korea
+200.120.118.142,Chile - Modgames
+18.191.92.182,Amazon US - Urferu
+lanplay.retrogamer.tech,España-retrogamer

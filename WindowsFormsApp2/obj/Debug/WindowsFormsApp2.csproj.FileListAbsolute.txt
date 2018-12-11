@@ -1,0 +1,52 @@
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\MaterialSkin.dll
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+C:\Users\raul2\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\bin\Debug\MaterialSkin.dll
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.FormPrincipal.resources
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.FormRecientes.resources
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.Cache
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\MaterialSkin.dll
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\Super-lan-play-client.exe.config
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\Super-lan-play-client.exe
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\Super-lan-play-client.pdb
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\Super-lan-play-client.exe
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\Super-lan-play-client.pdb
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.formCreditos.resources
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\Lan-Play-Server-Manager.exe.config
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\Lan-Play-Server-Manager.exe
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\Lan-Play-Server-Manager.pdb
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\Release\MaterialSkin.dll
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.formCreditos.resources
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.FormPrincipal.resources
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CopyComplete
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\Lan-Play-Server-Manager.exe
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\Lan-Play-Server-Manager.pdb
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\Release\Lan-Play-Server-Manager.exe.config
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\Release\Lan-Play-Server-Manager.exe
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\Release\Lan-Play-Server-Manager.pdb
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\Release\MaterialSkin.dll
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.formCreditos.resources
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.FormPrincipal.resources
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.Cache
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\Lan-Play-Server-Manager.exe
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\Lan-Play-Server-Manager.pdb
+G:\Projectos generales\Lan-Play-ServerManager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache
+C:\93050968\Switch\lanplay\proyectos\Lan-play\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache

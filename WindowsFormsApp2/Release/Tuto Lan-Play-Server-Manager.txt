@@ -1,0 +1,6 @@
+1-Abrir Lan-Play-Server-Manager
+2-Escribe la ip del servidor o selecciona un servidor de la lista de recientes con doble click
+3-presiona conectar y al ponerse la aplicacion en verde disfruta.
+
+
+NOTA: Es necesario tener winpcap o npcap instalado, la aplicacion solo facilita la ejecución de comandos y te permine organizar tus servidores favoritos.
