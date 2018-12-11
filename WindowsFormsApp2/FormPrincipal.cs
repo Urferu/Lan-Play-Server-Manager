@@ -249,6 +249,7 @@ namespace WindowsFormsApp2
                 this.Refresh();
                 StreamWriter swPmtu = new StreamWriter("pmtu.txt", false);
                 swPmtu.WriteLine(txtPmtu.Text.Trim());
+                swPmtu.Close();
                 parametros = "--pmtu "+txtPmtu.Text.Trim()+" --relay-server-addr " + dgvRecientes.CurrentRow.Cells[colServidor.Index].Value.ToString().Trim() + ":11451";
                 //Si se encontro identificador lanzamos directamente el identificador a lan-play
                 if (!string.IsNullOrWhiteSpace(identificadorIp))
