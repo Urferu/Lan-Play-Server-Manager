@@ -67,7 +67,7 @@ namespace WindowsFormsApp2
 
         private void ObtenerIdiomas()
         {
-            string lenguages = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/english_branch/Lenguages/LengugesDisp.json");
+            string lenguages = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/Lenguages/LengugesDisp.json");
             idiomas = stdClassCSharp.jsonToStdClass(lenguages);
             int indice = 0;
             int indiceIdioma = 0;
