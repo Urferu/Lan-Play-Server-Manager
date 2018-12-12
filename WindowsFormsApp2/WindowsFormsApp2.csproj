@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\JSON.cs" />
+    <Compile Include="Clases\stdClass.cs" />
     <Compile Include="FormCreditos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +85,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Herramientas\WinApi.cs" />
+    <Compile Include="LaguageManager\StringLenguages.cs" />
     <Compile Include="Lanzador.cs" />
     <Compile Include="Herramientas\Ping.cs" />
     <Compile Include="Program.cs" />

@@ -48,7 +48,7 @@
             this.colEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colConectados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPing = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.labelServers = new MaterialSkin.Controls.MaterialLabel();
             this.lblLanPlay = new MaterialSkin.Controls.MaterialLabel();
             this.pnDatos = new System.Windows.Forms.Panel();
             this.labelDatos = new System.Windows.Forms.Label();
@@ -272,18 +272,18 @@
             this.colPing.ReadOnly = true;
             this.colPing.Width = 55;
             // 
-            // materialLabel6
+            // labelServers
             // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(31, 91);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(138, 19);
-            this.materialLabel6.TabIndex = 20;
-            this.materialLabel6.Text = "Servers (Loading...)";
+            this.labelServers.AutoSize = true;
+            this.labelServers.Depth = 0;
+            this.labelServers.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelServers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelServers.Location = new System.Drawing.Point(31, 91);
+            this.labelServers.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelServers.Name = "labelServers";
+            this.labelServers.Size = new System.Drawing.Size(138, 19);
+            this.labelServers.TabIndex = 20;
+            this.labelServers.Text = "Servers (Loading...)";
             // 
             // lblLanPlay
             // 
@@ -351,6 +351,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 33;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // FormPrincipal
             // 
@@ -367,7 +368,7 @@
             this.Controls.Add(this.lblLanPlay);
             this.Controls.Add(this.dgvRecientes);
             this.Controls.Add(this.materialRaisedButton1);
-            this.Controls.Add(this.materialLabel6);
+            this.Controls.Add(this.labelServers);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtVersion);
             this.Controls.Add(this.materialRaisedButton3);
@@ -399,7 +400,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private System.Windows.Forms.DataGridView dgvRecientes;
-        private MaterialSkin.Controls.MaterialLabel materialLabel6;
+        private MaterialSkin.Controls.MaterialLabel labelServers;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumServer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colServidor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUbicacion;

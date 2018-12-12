@@ -5,6 +5,7 @@ using MaterialSkin;
 using System.Drawing;
 using System.Net.Cache;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Collections.Generic;
@@ -52,6 +53,11 @@ namespace WindowsFormsApp2
             GetRecentsServers();
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CambiaIdiomaSeleccionado();
+        }
+
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(e.Link.LinkData as string);
@@ -61,7 +67,68 @@ namespace WindowsFormsApp2
 
         private void ObtenerIdiomas()
         {
+            string lenguages = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/english_branch/Lenguages/LengugesDisp.json");
+            idiomas = stdClassCSharp.jsonToStdClass(lenguages);
+            foreach(stdClassCSharp idioma in idiomas.toArray())
+            {
+                comboBox1.Items.Add(idioma["language_name"]);
+            }
+            if (string.IsNullOrWhiteSpace(idiomas[CultureInfo.CurrentCulture.Name.Split('-')[0].ToUpper(), TiposDevolver.Cadena]))
+            {
+                comboBox1.SelectedText = idiomas["EN"];
+            }
+            else
+            {
+                comboBox1.SelectedText = idiomas[CultureInfo.CurrentCulture.Name.Split('-')[0].ToUpper(), TiposDevolver.Cadena];
+            }
+        }
 
+        private void CambiaIdiomaSeleccionado()
+        {
+            string selectedLenguage = "";
+            foreach(stdClassCSharp lenguage in idiomas.toArray())
+            {
+                if(lenguage["language_name"].Contains(comboBox1.SelectedText))
+                {
+                    selectedLenguage = lenguage["language_name"];
+                }
+            }
+            string lenguageData = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/english_branch/Lenguages/"+ selectedLenguage + ".json");
+            if(!string.IsNullOrWhiteSpace(lenguageData))
+            {
+                stdClassCSharp datosDelIdioma = stdClassCSharp.jsonToStdClass(lenguageData);
+                LenguagesManager.StringsPrincipalLenguages.ButtonConnect = datosDelIdioma["StringsPrincipalLenguages"]["ButtonConnect"];
+                LenguagesManager.StringsPrincipalLenguages.ToolTipConnect = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipConnect"];
+                LenguagesManager.StringsPrincipalLenguages.ButtonDisconnect = datosDelIdioma["StringsPrincipalLenguages"]["ButtonDisconnect"];
+                LenguagesManager.StringsPrincipalLenguages.Servers = datosDelIdioma["StringsPrincipalLenguages"]["Servers"];
+                LenguagesManager.StringsPrincipalLenguages.ServersLoading = datosDelIdioma["StringsPrincipalLenguages"]["ServersLoading"];
+                LenguagesManager.StringsPrincipalLenguages.ButtonReload = datosDelIdioma["StringsPrincipalLenguages"]["ButtonReload"];
+                LenguagesManager.StringsPrincipalLenguages.ToolTipReload = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipReload"];
+                LenguagesManager.StringsPrincipalLenguages.ToolTipMTU = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTU"];
+                LenguagesManager.StringsPrincipalLenguages.ToolTipMTUValue = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTUValue"];
+                LenguagesManager.StringsPrincipalLenguages.ShowConsole = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsole"];
+                LenguagesManager.StringsPrincipalLenguages.Credits = datosDelIdioma["StringsPrincipalLenguages"]["Credits"];
+                LenguagesManager.StringsPrincipalLenguages.LanPlayConsoleLabel = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayConsoleLabel"];
+
+                LenguagesManager.StringsCreditsLenguages.DesignedBy = datosDelIdioma["StringsCreditsLenguages"]["DesignedBy"];
+                LenguagesManager.StringsCreditsLenguages.DevelopedBy = datosDelIdioma["StringsCreditsLenguages"]["DevelopedBy"];
+                LenguagesManager.StringsCreditsLenguages.ListServers = datosDelIdioma["StringsCreditsLenguages"]["ListServers"];
+                LenguagesManager.StringsCreditsLenguages.SupportedBy = datosDelIdioma["StringsCreditsLenguages"]["SupportedBy"];
+                LenguagesManager.StringsCreditsLenguages.FollowOn = datosDelIdioma["StringsCreditsLenguages"]["FollowOn"];
+
+                if(Convert.ToInt32(materialRaisedButton1.Tag).Equals(0))
+                    materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonConnect;
+                else
+                    materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonDisconnect;
+                toolTip1.SetToolTip(this.materialRaisedButton1, LenguagesManager.StringsPrincipalLenguages.ToolTipConnect);
+
+                if (labelServers.Text.Contains("Cargando") || labelServers.Text.Contains("Loading"))
+                    labelServers.Text = LenguagesManager.StringsPrincipalLenguages.ServersLoading;
+                else
+                    labelServers.Text = LenguagesManager.StringsPrincipalLenguages.Servers;
+
+                materialRaisedButton2.Text = LenguagesManager.StringsPrincipalLenguages.ButtonReload;
+            }
         }
 
         /// <summary>
@@ -566,14 +633,14 @@ namespace WindowsFormsApp2
         private void cargaGrids_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             materialRaisedButton2.Enabled = true;
-            materialLabel6.Text = "Servers";
+            labelServers.Text = "Servers";
         }
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
             dgvRecientes.Rows.Clear();
             materialRaisedButton2.Enabled = false;
-            materialLabel6.Text = "Servers (Loading...)";
+            labelServers.Text = "Servers (Loading...)";
             cargaGrids.RunWorkerAsync();
         }
         #endregion
