@@ -12,7 +12,12 @@
         "ShowConsole": "Mostrar Consola",
         "ShowConsoleToolTip": "Muestra la información de la consola lan-play",
         "Credits": "Muestra la información de la consola de lan-play.",
-        "LanPlayConsoleLabel": "Aqui se aparecera la información de lan-play"
+        "LanPlayConsoleLabel": "Aqui se aparecera la información de lan-play",
+        "HeaderServer": "Servidor",
+        "HeaderLocation": "Ubicación",
+        "HeaderStatus": "Estatus",
+        "HeaderUsers": "Conectados",
+        "HeaderPing": "Latencia"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Diseñado por: D3fau4",

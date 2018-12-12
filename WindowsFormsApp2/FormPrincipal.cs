@@ -98,18 +98,9 @@ namespace WindowsFormsApp2
             {
                 stdClassCSharp datosDelIdioma = stdClassCSharp.jsonToStdClass(lenguageData);
                 LenguagesManager.StringsPrincipalLenguages.ButtonConnect = datosDelIdioma["StringsPrincipalLenguages"]["ButtonConnect"];
-                LenguagesManager.StringsPrincipalLenguages.ToolTipConnect = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipConnect"];
                 LenguagesManager.StringsPrincipalLenguages.ButtonDisconnect = datosDelIdioma["StringsPrincipalLenguages"]["ButtonDisconnect"];
                 LenguagesManager.StringsPrincipalLenguages.Servers = datosDelIdioma["StringsPrincipalLenguages"]["Servers"];
                 LenguagesManager.StringsPrincipalLenguages.ServersLoading = datosDelIdioma["StringsPrincipalLenguages"]["ServersLoading"];
-                LenguagesManager.StringsPrincipalLenguages.ButtonReload = datosDelIdioma["StringsPrincipalLenguages"]["ButtonReload"];
-                LenguagesManager.StringsPrincipalLenguages.ToolTipReload = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipReload"];
-                LenguagesManager.StringsPrincipalLenguages.ToolTipMTU = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTU"];
-                LenguagesManager.StringsPrincipalLenguages.ToolTipMTUValue = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTUValue"];
-                LenguagesManager.StringsPrincipalLenguages.ShowConsole = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsole"];
-                LenguagesManager.StringsPrincipalLenguages.ShowConsoleToolTip = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsoleToolTip"];
-                LenguagesManager.StringsPrincipalLenguages.Credits = datosDelIdioma["StringsPrincipalLenguages"]["Credits"];
-                LenguagesManager.StringsPrincipalLenguages.LanPlayConsoleLabel = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayConsoleLabel"];
 
                 LenguagesManager.StringsCreditsLenguages.DesignedBy = datosDelIdioma["StringsCreditsLenguages"]["DesignedBy"];
                 LenguagesManager.StringsCreditsLenguages.DevelopedBy = datosDelIdioma["StringsCreditsLenguages"]["DevelopedBy"];
@@ -121,20 +112,26 @@ namespace WindowsFormsApp2
                     materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonConnect;
                 else
                     materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonDisconnect;
-                toolTip1.SetToolTip(this.materialRaisedButton1, LenguagesManager.StringsPrincipalLenguages.ToolTipConnect);
+                toolTip1.SetToolTip(this.materialRaisedButton1, datosDelIdioma["StringsPrincipalLenguages"]["ToolTipConnect"]);
 
                 if (labelServers.Text.Contains("..."))
                     labelServers.Text = LenguagesManager.StringsPrincipalLenguages.ServersLoading;
                 else
                     labelServers.Text = LenguagesManager.StringsPrincipalLenguages.Servers;
 
-                materialRaisedButton2.Text = LenguagesManager.StringsPrincipalLenguages.ButtonReload;
-                toolTip1.SetToolTip(this.materialRaisedButton2, LenguagesManager.StringsPrincipalLenguages.ToolTipReload);
-                toolTip1.SetToolTip(linkLabel2, LenguagesManager.StringsPrincipalLenguages.ToolTipMTU);
-                toolTip1.SetToolTip(txtPmtu, LenguagesManager.StringsPrincipalLenguages.ToolTipMTUValue);
-                ckConsola.Text = LenguagesManager.StringsPrincipalLenguages.ShowConsole;
-                toolTip1.SetToolTip(ckConsola, LenguagesManager.StringsPrincipalLenguages.ShowConsoleToolTip);
-                labelDatos.Text = LenguagesManager.StringsPrincipalLenguages.LanPlayConsoleLabel;
+                materialRaisedButton2.Text = datosDelIdioma["StringsPrincipalLenguages"]["ButtonReload"];
+                toolTip1.SetToolTip(this.materialRaisedButton2, datosDelIdioma["StringsPrincipalLenguages"]["ToolTipReload"]);
+                toolTip1.SetToolTip(linkLabel2, datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTU"]);
+                toolTip1.SetToolTip(txtPmtu, datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTUValue"]);
+                ckConsola.Text = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsole"];
+                toolTip1.SetToolTip(ckConsola, datosDelIdioma["StringsPrincipalLenguages"]["ShowConsoleToolTip"]);
+                labelDatos.Text = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayConsoleLabel"];
+                materialRaisedButton3.Text = datosDelIdioma["StringsPrincipalLenguages"]["Credits"];
+                colServidor.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderServer"];
+                colUbicacion.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderLocation"];
+                colEstatus.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderStatus"];
+                colConectados.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderUsers"];
+                colPing.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderPing"];
             }
         }
 

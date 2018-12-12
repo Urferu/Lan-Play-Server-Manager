@@ -42,12 +42,6 @@
             this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.dgvRecientes = new System.Windows.Forms.DataGridView();
-            this.colNumServer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUbicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colConectados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelServers = new MaterialSkin.Controls.MaterialLabel();
             this.lblLanPlay = new MaterialSkin.Controls.MaterialLabel();
             this.pnDatos = new System.Windows.Forms.Panel();
@@ -55,6 +49,12 @@
             this.cargaGrids = new System.ComponentModel.BackgroundWorker();
             this.ckInternet = new MaterialSkin.Controls.MaterialCheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.colNumServer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUbicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colConectados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
@@ -231,47 +231,6 @@
             this.dgvRecientes.Size = new System.Drawing.Size(506, 383);
             this.dgvRecientes.TabIndex = 24;
             // 
-            // colNumServer
-            // 
-            this.colNumServer.HeaderText = "No.";
-            this.colNumServer.Name = "colNumServer";
-            this.colNumServer.ReadOnly = true;
-            this.colNumServer.Width = 75;
-            // 
-            // colServidor
-            // 
-            this.colServidor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colServidor.HeaderText = "Servidor";
-            this.colServidor.Name = "colServidor";
-            this.colServidor.ReadOnly = true;
-            // 
-            // colUbicacion
-            // 
-            this.colUbicacion.HeaderText = "Ubicación";
-            this.colUbicacion.Name = "colUbicacion";
-            this.colUbicacion.ReadOnly = true;
-            // 
-            // colEstatus
-            // 
-            this.colEstatus.HeaderText = "Estatus";
-            this.colEstatus.Name = "colEstatus";
-            this.colEstatus.ReadOnly = true;
-            this.colEstatus.Width = 65;
-            // 
-            // colConectados
-            // 
-            this.colConectados.HeaderText = "Conetados";
-            this.colConectados.Name = "colConectados";
-            this.colConectados.ReadOnly = true;
-            this.colConectados.Width = 60;
-            // 
-            // colPing
-            // 
-            this.colPing.HeaderText = "Latencia";
-            this.colPing.Name = "colPing";
-            this.colPing.ReadOnly = true;
-            this.colPing.Width = 55;
-            // 
             // labelServers
             // 
             this.labelServers.AutoSize = true;
@@ -355,6 +314,47 @@
             this.comboBox1.TabIndex = 33;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // colNumServer
+            // 
+            this.colNumServer.HeaderText = "No.";
+            this.colNumServer.Name = "colNumServer";
+            this.colNumServer.ReadOnly = true;
+            this.colNumServer.Width = 75;
+            // 
+            // colServidor
+            // 
+            this.colServidor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colServidor.HeaderText = "Servidor";
+            this.colServidor.Name = "colServidor";
+            this.colServidor.ReadOnly = true;
+            // 
+            // colUbicacion
+            // 
+            this.colUbicacion.HeaderText = "Ubicación";
+            this.colUbicacion.Name = "colUbicacion";
+            this.colUbicacion.ReadOnly = true;
+            // 
+            // colEstatus
+            // 
+            this.colEstatus.HeaderText = "Estatus";
+            this.colEstatus.Name = "colEstatus";
+            this.colEstatus.ReadOnly = true;
+            this.colEstatus.Width = 65;
+            // 
+            // colConectados
+            // 
+            this.colConectados.HeaderText = "Conectados";
+            this.colConectados.Name = "colConectados";
+            this.colConectados.ReadOnly = true;
+            this.colConectados.Width = 65;
+            // 
+            // colPing
+            // 
+            this.colPing.HeaderText = "Latencia";
+            this.colPing.Name = "colPing";
+            this.colPing.ReadOnly = true;
+            this.colPing.Width = 55;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -403,12 +403,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private System.Windows.Forms.DataGridView dgvRecientes;
         private MaterialSkin.Controls.MaterialLabel labelServers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumServer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colServidor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUbicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEstatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colConectados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPing;
         private MaterialSkin.Controls.MaterialLabel lblLanPlay;
         private System.Windows.Forms.Panel pnDatos;
         private System.Windows.Forms.Label labelDatos;
@@ -419,6 +413,12 @@
         private MaterialSkin.Controls.MaterialCheckBox ckConsola;
         private MaterialSkin.Controls.MaterialCheckBox ckInternet;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumServer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colServidor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUbicacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colConectados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPing;
     }
 }
 
