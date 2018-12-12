@@ -1,0 +1,30 @@
+﻿{
+    "StringsPrincipalLenguages": {
+        "ButtonConnect": "Relier",
+        "ToolTipConnect": "Se connecter au serveur sélectionné",
+        "ButtonDisconnect": "Déconnecter",
+        "Servers": "Serveurs",
+        "ServersLoading": "Serveurs (Chargement...)",
+        "ButtonReload": "Recharger Serveurs",
+        "ToolTipReload": "Recharger la liste de serveurs",
+        "ToolTipMTU": "Rediriger vers un outil pour valider votre MTU idéal",
+        "ToolTipMTUValue": "MTU à utiliser pour la connexion.\n Si vous utilisez votre MTU idéal, vous pouvez réduire le délai.",
+        "ShowConsole": "Afficher la console",
+        "ShowConsoleToolTip": "Afficher les informations de la console lan-play",
+        "Credits": "Afficher les informations de la console lan-play",
+        "ButtonCredits": "Crédits",
+        "LanPlayConsoleLabel": "Voici ce qui lance la console de jeu LAN",
+        "HeaderServer": "Serveurs",
+        "HeaderLocation": "Emplacement",
+        "HeaderStatus": "Statut",
+        "HeaderUsers": "Connecté",
+        "HeaderPing": "Ping"
+    },
+    "StringsCreditsLenguages": {
+        "DesignedBy": "Conçu par: D3fau4",
+        "DevelopedBy": "Développé par: Urferu",
+        "ListServers": "Serveurs et aide par: Clock",
+        "SupportedBy": "Distribué et soutenu par:",
+        "FollowOn": "Suivez-nous sur:"
+    }
+}

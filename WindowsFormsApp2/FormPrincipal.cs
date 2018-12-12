@@ -126,7 +126,8 @@ namespace WindowsFormsApp2
                 ckConsola.Text = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsole"];
                 toolTip1.SetToolTip(ckConsola, datosDelIdioma["StringsPrincipalLenguages"]["ShowConsoleToolTip"]);
                 labelDatos.Text = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayConsoleLabel"];
-                materialRaisedButton3.Text = datosDelIdioma["StringsPrincipalLenguages"]["Credits"];
+                materialRaisedButton3.Text = datosDelIdioma["StringsPrincipalLenguages"]["ButtonCredits"];
+                toolTip1.SetToolTip(materialRaisedButton3, datosDelIdioma["StringsPrincipalLenguages"]["Credits"]);
                 colServidor.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderServer"];
                 colUbicacion.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderLocation"];
                 colEstatus.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderStatus"];

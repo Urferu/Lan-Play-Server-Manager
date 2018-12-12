@@ -6,5 +6,21 @@
     "ES": {
         "abbreviation": "ES",
         "language_name": "Español"
+    },
+    "DE": {
+        "abbreviation": "DE",
+        "language_name": "Deutsch"
+    },
+    "FR": {
+        "abbreviation": "FR",
+        "language_name": "Francais"
+    },
+    "IT": {
+        "abbreviation": "IT",
+        "language_name": "Italiano"
+    },
+    "PR": {
+        "abbreviation": "PR",
+        "language_name": "Português"
     }
 }

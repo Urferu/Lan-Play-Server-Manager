@@ -11,6 +11,7 @@
         "ToolTipMTUValue": "MTU que se utilizará para la conexión,\nsi utilizas tu mtu ideal puedes reducir el lag.",
         "ShowConsole": "Mostrar Consola",
         "ShowConsoleToolTip": "Muestra la información de la consola lan-play",
+        "ButtonCredits": "Créditos",
         "Credits": "Muestra la información de la consola de lan-play.",
         "LanPlayConsoleLabel": "Aqui se aparecera la información de lan-play",
         "HeaderServer": "Servidor",

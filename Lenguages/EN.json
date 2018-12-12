@@ -12,6 +12,7 @@
         "ShowConsole": "Show Console",
         "ShowConsoleToolTip": "Show the information of the lan-play console",
         "Credits": "Show the information of the lan-play console",
+        "ButtonCredits": "Credits",
         "LanPlayConsoleLabel": "Here is what launches the lan play console",
         "HeaderServer": "Server",
         "HeaderLocation": "Location",
