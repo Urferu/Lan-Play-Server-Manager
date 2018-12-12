@@ -1,15 +1,12 @@
-switch.lan-play.com,EU-(France)
-usplay.secretalgorithm.com,US-West CA
-38.122.225.132,US - NYC
-pcoh.ddns.net,US
+35.236.10.223,US-West CA
 nxlan.duckdns.org,US-Northwest WA
+pcoh.ddns.net,US
+fr.fadx.co.uk,EU-(France)
 relay1.fadx.co.uk,EU-(UK)
-relay2.fadx.co.uk,EU-(UK)
 switch.glaciergaming.co.uk,EU-(UK)
 switch.homelab.tech,EU-(UK)
 bandits.duckdns.org,EU-(Spain)
 memehouse.de,EU-(Germany)
 relay.it-cybergate.club,EU-(Germany)
-euplay.secretalgorithm.com,EU-(Lithuania)
 slp.rush-hour.wo.tc,Korea
 lithium2g.ddns.net,Australia
