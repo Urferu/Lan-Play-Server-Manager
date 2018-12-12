@@ -1,0 +1,23 @@
+{
+    "StringsPrincipalLenguages": {
+        "ButtonConnect": "Connect",
+        "ToolTipConnect": "Connect to the selected server",
+        "ButtonDisconnect": "Disconnect",
+        "Servers": "Servers",
+        "ServersLoading": "Servers (Loading...)",
+        "ButtonReload": "Reload Servers",
+        "ToolTipReload": "Reload the server list",
+        "ToolTipMTU": "Redirect to a tool to validate your ideal mtu",
+        "ToolTipMTUValue": "MTU to be used for the connection.\nIf you use your ideal mtu you can reduce the lag.",
+        "ShowConsole": "Show Console",
+        "Credits": "Show the information of the lan-play console",
+        "LanPlayConsoleLabel": "Here is what launches the lan play console"
+    },
+    "StringsCreditsLenguages": {
+        "DesignedBy": "Designed by: D3fau4",
+        "DevelopedBy": "Developed by: Urferu",
+        "ListServers": "List of servers by: Clock",
+        "SupportedBy": "Distributed and supported by:",
+        "FollowOn": "Follow us on:"
+    }
+}

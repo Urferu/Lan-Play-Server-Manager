@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
-
+using WindowsFormsApp2.Clases;
 
 namespace WindowsFormsApp2
 {
@@ -20,6 +20,7 @@ namespace WindowsFormsApp2
         Process bat;
         MaterialSkinManager m;
         HttpRequestCachePolicy noCachePolicy;
+        stdClassCSharp idiomas;
 
         public FormPrincipal()
         {
@@ -32,6 +33,7 @@ namespace WindowsFormsApp2
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
             noCachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
             bat = new Process();
+            ObtenerIdiomas();
             LinkLabel.Link linkRadikal = new LinkLabel.Link();
             linkRadikal.LinkData = "http://www.letmecheck.it/mtu-test.php";
             linkLabel2.Links.Add(linkRadikal);
@@ -56,6 +58,11 @@ namespace WindowsFormsApp2
         }
 
         #region Inicial
+
+        private void ObtenerIdiomas()
+        {
+
+        }
 
         /// <summary>
         /// Consulta la version actual utilizada de lan-play

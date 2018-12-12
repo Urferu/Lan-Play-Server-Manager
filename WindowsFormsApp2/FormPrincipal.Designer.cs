@@ -34,11 +34,12 @@
             this.txtVersion = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbStatus = new MaterialSkin.Controls.MaterialLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtPmtu = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.ckConsola = new MaterialSkin.Controls.MaterialCheckBox();
+            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.dgvRecientes = new System.Windows.Forms.DataGridView();
             this.colNumServer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,8 +53,8 @@
             this.pnDatos = new System.Windows.Forms.Panel();
             this.labelDatos = new System.Windows.Forms.Label();
             this.cargaGrids = new System.ComponentModel.BackgroundWorker();
-            this.ckConsola = new MaterialSkin.Controls.MaterialCheckBox();
             this.ckInternet = new MaterialSkin.Controls.MaterialCheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
@@ -98,21 +99,6 @@
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(0, 19);
             this.lbStatus.TabIndex = 9;
-            // 
-            // materialRaisedButton3
-            // 
-            this.materialRaisedButton3.BackColor = System.Drawing.SystemColors.Control;
-            this.materialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Help;
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 543);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(78, 23);
-            this.materialRaisedButton3.TabIndex = 12;
-            this.materialRaisedButton3.Text = "Credits";
-            this.materialRaisedButton3.UseVisualStyleBackColor = false;
-            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
             // 
             // materialRaisedButton1
             // 
@@ -175,6 +161,39 @@
             this.linkLabel2.Text = "MTU";
             this.toolTip1.SetToolTip(this.linkLabel2, "Redirect to a tool to validate your ideal mtu");
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
+            // ckConsola
+            // 
+            this.ckConsola.AutoSize = true;
+            this.ckConsola.Depth = 0;
+            this.ckConsola.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ckConsola.Location = new System.Drawing.Point(230, 524);
+            this.ckConsola.Margin = new System.Windows.Forms.Padding(0);
+            this.ckConsola.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ckConsola.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ckConsola.Name = "ckConsola";
+            this.ckConsola.Ripple = true;
+            this.ckConsola.Size = new System.Drawing.Size(118, 30);
+            this.ckConsola.TabIndex = 31;
+            this.ckConsola.Text = "Show Console";
+            this.toolTip1.SetToolTip(this.ckConsola, "Show the information of the lan-play console");
+            this.ckConsola.UseVisualStyleBackColor = true;
+            this.ckConsola.CheckedChanged += new System.EventHandler(this.ckConsola_CheckedChanged);
+            // 
+            // materialRaisedButton3
+            // 
+            this.materialRaisedButton3.BackColor = System.Drawing.SystemColors.Control;
+            this.materialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Help;
+            this.materialRaisedButton3.Depth = 0;
+            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 543);
+            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton3.Name = "materialRaisedButton3";
+            this.materialRaisedButton3.Primary = true;
+            this.materialRaisedButton3.Size = new System.Drawing.Size(78, 23);
+            this.materialRaisedButton3.TabIndex = 12;
+            this.materialRaisedButton3.Text = "Credits";
+            this.materialRaisedButton3.UseVisualStyleBackColor = false;
+            this.materialRaisedButton3.Click += new System.EventHandler(this.materialRaisedButton3_Click);
             // 
             // materialLabel2
             // 
@@ -307,24 +326,6 @@
             this.cargaGrids.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.cargaGrids_ProgressChanged);
             this.cargaGrids.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.cargaGrids_RunWorkerCompleted);
             // 
-            // ckConsola
-            // 
-            this.ckConsola.AutoSize = true;
-            this.ckConsola.Depth = 0;
-            this.ckConsola.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckConsola.Location = new System.Drawing.Point(230, 524);
-            this.ckConsola.Margin = new System.Windows.Forms.Padding(0);
-            this.ckConsola.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.ckConsola.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ckConsola.Name = "ckConsola";
-            this.ckConsola.Ripple = true;
-            this.ckConsola.Size = new System.Drawing.Size(118, 30);
-            this.ckConsola.TabIndex = 31;
-            this.ckConsola.Text = "Show Console";
-            this.toolTip1.SetToolTip(this.ckConsola, "Show the information of the lan-play console");
-            this.ckConsola.UseVisualStyleBackColor = true;
-            this.ckConsola.CheckedChanged += new System.EventHandler(this.ckConsola_CheckedChanged);
-            // 
             // ckInternet
             // 
             this.ckInternet.AutoSize = true;
@@ -343,11 +344,20 @@
             this.ckInternet.Text = "Fake-internet";
             this.ckInternet.UseVisualStyleBackColor = true;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(416, 34);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 33;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 575);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ckInternet);
             this.Controls.Add(this.ckConsola);
             this.Controls.Add(this.linkLabel2);
@@ -405,6 +415,7 @@
         private System.Windows.Forms.LinkLabel linkLabel2;
         private MaterialSkin.Controls.MaterialCheckBox ckConsola;
         private MaterialSkin.Controls.MaterialCheckBox ckInternet;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
