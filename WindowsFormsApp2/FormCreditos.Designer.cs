@@ -49,7 +49,7 @@
             this.lbIpPublica.Name = "lbIpPublica";
             this.lbIpPublica.Size = new System.Drawing.Size(145, 19);
             this.lbIpPublica.TabIndex = 11;
-            this.lbIpPublica.Text = "Designed by: D3fau4";
+            this.lbIpPublica.Text = LenguagesManager.StringsCreditsLenguages.DesignedBy;
             // 
             // materialLabel1
             // 
@@ -62,7 +62,7 @@
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(147, 19);
             this.materialLabel1.TabIndex = 12;
-            this.materialLabel1.Text = "Developed by: Urferu";
+            this.materialLabel1.Text = LenguagesManager.StringsCreditsLenguages.DevelopedBy;
             // 
             // materialLabel2
             // 
@@ -75,7 +75,7 @@
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(171, 19);
             this.materialLabel2.TabIndex = 13;
-            this.materialLabel2.Text = "List of servers by: Clock";
+            this.materialLabel2.Text = LenguagesManager.StringsCreditsLenguages.ListServers;
             // 
             // materialLabel3
             // 
@@ -88,7 +88,7 @@
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(204, 19);
             this.materialLabel3.TabIndex = 14;
-            this.materialLabel3.Text = "Distributed and supported by:";
+            this.materialLabel3.Text = LenguagesManager.StringsCreditsLenguages.SupportedBy;
             // 
             // materialLabel4
             // 
@@ -101,7 +101,7 @@
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(99, 19);
             this.materialLabel4.TabIndex = 15;
-            this.materialLabel4.Text = "Follow us on:";
+            this.materialLabel4.Text = LenguagesManager.StringsCreditsLenguages.FollowOn;
             // 
             // linkLabel1
             // 

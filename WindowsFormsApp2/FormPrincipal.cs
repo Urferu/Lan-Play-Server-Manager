@@ -69,18 +69,18 @@ namespace WindowsFormsApp2
         {
             string lenguages = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/english_branch/Lenguages/LengugesDisp.json");
             idiomas = stdClassCSharp.jsonToStdClass(lenguages);
-            foreach(stdClassCSharp idioma in idiomas.toArray())
+            int indice = 0;
+            int indiceIdioma = 0;
+            foreach (stdClassCSharp idioma in idiomas.toArray())
             {
                 comboBox1.Items.Add(idioma["language_name"]);
+                if(CultureInfo.CurrentCulture.Name.Split('-')[0].ToUpper().Equals(idioma["abbreviation"]))
+                {
+                    indiceIdioma = indice;
+                }
+                indice++;
             }
-            if (string.IsNullOrWhiteSpace(idiomas[CultureInfo.CurrentCulture.Name.Split('-')[0].ToUpper(), TiposDevolver.Cadena]))
-            {
-                comboBox1.SelectedText = idiomas["EN"];
-            }
-            else
-            {
-                comboBox1.SelectedText = idiomas[CultureInfo.CurrentCulture.Name.Split('-')[0].ToUpper(), TiposDevolver.Cadena];
-            }
+            comboBox1.SelectedIndex = indiceIdioma;
         }
 
         private void CambiaIdiomaSeleccionado()
@@ -88,12 +88,12 @@ namespace WindowsFormsApp2
             string selectedLenguage = "";
             foreach(stdClassCSharp lenguage in idiomas.toArray())
             {
-                if(lenguage["language_name"].Contains(comboBox1.SelectedText))
+                if(lenguage["language_name"].Contains(comboBox1.Items[comboBox1.SelectedIndex].ToString()))
                 {
-                    selectedLenguage = lenguage["language_name"];
+                    selectedLenguage = lenguage["abbreviation"];
                 }
             }
-            string lenguageData = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/english_branch/Lenguages/"+ selectedLenguage + ".json");
+            string lenguageData = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/Lenguages/"+ selectedLenguage + ".json");
             if(!string.IsNullOrWhiteSpace(lenguageData))
             {
                 stdClassCSharp datosDelIdioma = stdClassCSharp.jsonToStdClass(lenguageData);
@@ -107,6 +107,7 @@ namespace WindowsFormsApp2
                 LenguagesManager.StringsPrincipalLenguages.ToolTipMTU = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTU"];
                 LenguagesManager.StringsPrincipalLenguages.ToolTipMTUValue = datosDelIdioma["StringsPrincipalLenguages"]["ToolTipMTUValue"];
                 LenguagesManager.StringsPrincipalLenguages.ShowConsole = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsole"];
+                LenguagesManager.StringsPrincipalLenguages.ShowConsoleToolTip = datosDelIdioma["StringsPrincipalLenguages"]["ShowConsoleToolTip"];
                 LenguagesManager.StringsPrincipalLenguages.Credits = datosDelIdioma["StringsPrincipalLenguages"]["Credits"];
                 LenguagesManager.StringsPrincipalLenguages.LanPlayConsoleLabel = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayConsoleLabel"];
 
@@ -122,12 +123,18 @@ namespace WindowsFormsApp2
                     materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonDisconnect;
                 toolTip1.SetToolTip(this.materialRaisedButton1, LenguagesManager.StringsPrincipalLenguages.ToolTipConnect);
 
-                if (labelServers.Text.Contains("Cargando") || labelServers.Text.Contains("Loading"))
+                if (labelServers.Text.Contains("..."))
                     labelServers.Text = LenguagesManager.StringsPrincipalLenguages.ServersLoading;
                 else
                     labelServers.Text = LenguagesManager.StringsPrincipalLenguages.Servers;
 
                 materialRaisedButton2.Text = LenguagesManager.StringsPrincipalLenguages.ButtonReload;
+                toolTip1.SetToolTip(this.materialRaisedButton2, LenguagesManager.StringsPrincipalLenguages.ToolTipReload);
+                toolTip1.SetToolTip(linkLabel2, LenguagesManager.StringsPrincipalLenguages.ToolTipMTU);
+                toolTip1.SetToolTip(txtPmtu, LenguagesManager.StringsPrincipalLenguages.ToolTipMTUValue);
+                ckConsola.Text = LenguagesManager.StringsPrincipalLenguages.ShowConsole;
+                toolTip1.SetToolTip(ckConsola, LenguagesManager.StringsPrincipalLenguages.ShowConsoleToolTip);
+                labelDatos.Text = LenguagesManager.StringsPrincipalLenguages.LanPlayConsoleLabel;
             }
         }
 
@@ -346,7 +353,7 @@ namespace WindowsFormsApp2
                 bat.Start();
                 materialRaisedButton1.Enabled = true;
                 materialRaisedButton1.Tag = 1;
-                materialRaisedButton1.Text = "Disconnect";
+                materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonDisconnect;
                 m.ColorScheme = new ColorScheme(Primary.Green400, Primary.Green300, Primary.Green200, Accent.Green100, TextShade.WHITE);
                 while (bat.MainWindowHandle.ToInt32() == 0)
                 {
@@ -397,21 +404,6 @@ namespace WindowsFormsApp2
             }
         }
 
-        private delegate void OutputHandlerDelegado(string linea);
-
-        private void OutputHandler(string linea)
-        {
-            if(this.InvokeRequired)
-            {
-                Invoke(new OutputHandlerDelegado(OutputHandler), linea);
-            }
-            else
-            {
-                if(!string.IsNullOrWhiteSpace(linea))
-                    labelDatos.Text = labelDatos.Text + Environment.NewLine + linea;
-            }
-        }
-
         private delegate void lanplayexitDelegado(object sender, EventArgs e);
 
         private void lanplayexit(object sender, EventArgs e)
@@ -431,7 +423,7 @@ namespace WindowsFormsApp2
                     catch
                     {
                     }
-                    materialRaisedButton1.Text = "Connect";
+                    materialRaisedButton1.Text = LenguagesManager.StringsPrincipalLenguages.ButtonConnect;
                     materialRaisedButton1.Tag = 0;
                     m.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red700, Primary.Red600, Accent.Red400, TextShade.WHITE);
                     ActivarDesactivarControles(true);
@@ -633,14 +625,14 @@ namespace WindowsFormsApp2
         private void cargaGrids_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             materialRaisedButton2.Enabled = true;
-            labelServers.Text = "Servers";
+            labelServers.Text = LenguagesManager.StringsPrincipalLenguages.Servers;
         }
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
             dgvRecientes.Rows.Clear();
             materialRaisedButton2.Enabled = false;
-            labelServers.Text = "Servers (Loading...)";
+            labelServers.Text = LenguagesManager.StringsPrincipalLenguages.ServersLoading; ;
             cargaGrids.RunWorkerAsync();
         }
         #endregion

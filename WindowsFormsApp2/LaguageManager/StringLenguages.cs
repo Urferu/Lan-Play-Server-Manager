@@ -12,6 +12,7 @@
         public static string ToolTipMTU;
         public static string ToolTipMTUValue;
         public static string ShowConsole;
+        public static string ShowConsoleToolTip;
         public static string Credits;
         public static string LanPlayConsoleLabel;
     }

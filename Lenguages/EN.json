@@ -10,6 +10,7 @@
         "ToolTipMTU": "Redirect to a tool to validate your ideal mtu",
         "ToolTipMTUValue": "MTU to be used for the connection.\nIf you use your ideal mtu you can reduce the lag.",
         "ShowConsole": "Show Console",
+        "ShowConsoleToolTip": "Show the information of the lan-play console",
         "Credits": "Show the information of the lan-play console",
         "LanPlayConsoleLabel": "Here is what launches the lan play console"
     },
