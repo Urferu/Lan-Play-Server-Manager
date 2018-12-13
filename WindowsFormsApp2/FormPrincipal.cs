@@ -647,8 +647,8 @@ namespace WindowsFormsApp2
                         cargaGrids.ReportProgress(indice, (object)datos);
                         indice++;
                     }
+                    leido = srArchivo.ReadLine();
                 }
-                leido = srArchivo.ReadLine();
                 srArchivo.Close();
             }
         }
