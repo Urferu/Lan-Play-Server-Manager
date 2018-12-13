@@ -604,21 +604,17 @@ namespace WindowsFormsApp2
 
             foreach (string serverInfo in servers)
             {
-                if (!servers.Contains(serverInfo))
+                server = serverInfo.Split(',')[0];
+                ubicacion = serverInfo.Split(',')[1];
+                ObtenerEstatusDatos(server, ref estado, ref latencia);
+                conectados = ObtenerConectados(server);
+                if (conectados > 0)
                 {
-                    servers.Add(serverInfo);
-                    server = serverInfo.Split(',')[0];
-                    ubicacion = serverInfo.Split(',')[1];
-                    ObtenerEstatusDatos(server, ref estado, ref latencia);
-                    conectados = ObtenerConectados(server);
-                    if (conectados > 0)
-                    {
-                        estado = "Online";
-                    }
-                    object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
-                    cargaGrids.ReportProgress(indice, (object)datos);
-                    indice++;
+                    estado = "Online";
                 }
+                object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
+                cargaGrids.ReportProgress(indice, (object)datos);
+                indice++;
             }
 
             if (File.Exists("Servers.txt"))
@@ -649,11 +645,10 @@ namespace WindowsFormsApp2
                         }
                         object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
                         cargaGrids.ReportProgress(indice, (object)datos);
-
-                        leido = srArchivo.ReadLine();
                         indice++;
                     }
                 }
+                leido = srArchivo.ReadLine();
                 srArchivo.Close();
             }
         }
