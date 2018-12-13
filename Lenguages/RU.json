@@ -12,6 +12,7 @@
         "ShowConsole": "Показать консоль",
         "ShowConsoleToolTip": "Показать информацию в консоли",
         "Credits": "Показать информацию о создателях",
+        "ButtonCredits": "Создатели",
         "LanPlayConsoleLabel": "Здесь то что запускает консоль lan-play",
         "HeaderServer": "Сервер",
         "HeaderLocation": "Местонахождение",

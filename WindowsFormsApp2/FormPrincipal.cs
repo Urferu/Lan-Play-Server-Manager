@@ -80,7 +80,8 @@ namespace WindowsFormsApp2
                 }
                 indice++;
             }
-            comboBox1.SelectedIndex = indiceIdioma;
+            if(!File.Exists("config.txt"))
+                comboBox1.SelectedIndex = indiceIdioma;
         }
 
         private void CambiaIdiomaSeleccionado()
@@ -152,13 +153,60 @@ namespace WindowsFormsApp2
             }
         }
 
-        private void LoadPmtu()
+        private void LoadPmtu(bool guardar = false)
         {
-            if(File.Exists("pmtu.txt"))
+            if (!guardar)
             {
-                StreamReader swPmtu = new StreamReader("pmtu.txt");
-                txtPmtu.Text = swPmtu.ReadToEnd().Trim();
-                swPmtu.Close();
+                int numeroConfiguracion = 0;
+                if (File.Exists("config.txt"))
+                {
+                    StreamReader configFile = new StreamReader("config.txt");
+                    string linea = "";
+                    do
+                    {
+                        linea = configFile.ReadLine();
+                        if (!string.IsNullOrWhiteSpace(linea))
+                        {
+                            switch (numeroConfiguracion)
+                            {
+                                case 0:
+                                    comboBox1.SelectedIndex = Convert.ToInt32(linea);
+                                    break;
+                                case 1:
+                                    if (linea.Trim().Contains("1"))
+                                    {
+                                        ckInternet.Checked = true;
+                                    }
+                                    else
+                                    {
+                                        ckInternet.Checked = false;
+                                    }
+                                    break;
+                                case 2:
+                                    if (linea.Trim().Contains("1"))
+                                    {
+                                        ckConsola.Checked = true;
+                                    }
+                                    break;
+                                case 3:
+                                    txtPmtu.Text = linea;
+                                    break;
+                            }
+                            numeroConfiguracion++;
+                        }
+                    }
+                    while (!string.IsNullOrWhiteSpace(linea));
+                    configFile.Close();
+                }
+            }
+            else
+            {
+                StreamWriter configFile = new StreamWriter("config.txt", false);
+                configFile.WriteLine(comboBox1.SelectedIndex.ToString());
+                configFile.WriteLine(ckInternet.Checked ? "1" : "0");
+                configFile.WriteLine(ckConsola.Checked ? "1" : "0");
+                configFile.WriteLine(txtPmtu.Text);
+                configFile.Close();
             }
         }
 
@@ -455,6 +503,7 @@ namespace WindowsFormsApp2
             {
                 bat.Kill();
             }
+            LoadPmtu(true);
         }
 
         private void materialRaisedButton3_Click(object sender, EventArgs e)
@@ -516,9 +565,9 @@ namespace WindowsFormsApp2
             {
                 using (WebResponse response = webrequest.GetResponse())
                 {
-                    using (System.IO.Stream stream2 = response.GetResponseStream())
+                    using (Stream stream2 = response.GetResponseStream())
                     {
-                        using (System.IO.StreamReader reader = new System.IO.StreamReader(stream2))
+                        using (StreamReader reader = new StreamReader(stream2))
                         {
                             responseFromServer = reader.ReadToEnd();
                             reader.Close();
@@ -548,24 +597,28 @@ namespace WindowsFormsApp2
             int conectados = 0;
             int indice = 0;
             string serversDatos = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/Servers/Servers.txt");
-            if(!string.IsNullOrWhiteSpace(serversDatos))
+            if (!string.IsNullOrWhiteSpace(serversDatos))
             {
                 servers.AddRange(serversDatos.Split('\n'));
             }
-            
-            foreach(string serverInfo in servers)
+
+            foreach (string serverInfo in servers)
             {
-                server = serverInfo.Split(',')[0];
-                ubicacion = serverInfo.Split(',')[1];
-                ObtenerEstatusDatos(server, ref estado, ref latencia);
-                conectados = ObtenerConectados(server);
-                if (conectados > 0)
+                if (!servers.Contains(serverInfo))
                 {
-                    estado = "Online";
+                    servers.Add(serverInfo);
+                    server = serverInfo.Split(',')[0];
+                    ubicacion = serverInfo.Split(',')[1];
+                    ObtenerEstatusDatos(server, ref estado, ref latencia);
+                    conectados = ObtenerConectados(server);
+                    if (conectados > 0)
+                    {
+                        estado = "Online";
+                    }
+                    object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
+                    cargaGrids.ReportProgress(indice, (object)datos);
+                    indice++;
                 }
-                object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
-                cargaGrids.ReportProgress(indice, (object)datos);
-                indice++;
             }
 
             if (File.Exists("Servers.txt"))
