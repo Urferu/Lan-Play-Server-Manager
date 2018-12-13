@@ -1,0 +1,29 @@
+﻿{
+    "StringsPrincipalLenguages": {
+        "ButtonConnect": "Подключиться",
+        "ToolTipConnect": "Подключиться к выбранному серверу",
+        "ButtonDisconnect": "Отключиться",
+        "Servers": "Сервера",
+        "ServersLoading": "Список серверов загружается...",
+        "ButtonReload": "Обновить статус",
+        "ToolTipReload": "Обновить список серверов",
+        "ToolTipMTU": "Ссылка на средство для нахождения идеального MTU",
+        "ToolTipMTUValue": "MTU используемый для подключения.\n Если используется идеальный MTU, вы можете избежать лагов.",
+        "ShowConsole": "Показать консоль",
+        "ShowConsoleToolTip": "Показать информацию в консоли",
+        "Credits": "Показать информацию о создателях",
+        "LanPlayConsoleLabel": "Здесь то что запускает консоль lan-play",
+        "HeaderServer": "Сервер",
+        "HeaderLocation": "Местонахождение",
+        "HeaderStatus": "Статус",
+        "HeaderUsers": "Подключено",
+        "HeaderPing": "Пинг"
+    },
+    "StringsCreditsLenguages": {
+        "DesignedBy": "Придумано: D3fau4",
+        "DevelopedBy": "Разработано: Urferu",
+        "ListServers": "Список серверов от: Clock",
+        "SupportedBy": "Выпущено и поддерживается:",
+        "FollowOn": "Наши контакты:"
+    }
+}

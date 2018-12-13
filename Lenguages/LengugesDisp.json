@@ -22,5 +22,9 @@
     "PR": {
         "abbreviation": "PR",
         "language_name": "Português"
+    },
+    "RU": {
+        "abbreviation": "RU",
+        "language_name": "русский"
     }
 }
