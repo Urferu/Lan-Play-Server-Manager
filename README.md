@@ -9,7 +9,7 @@ Observe the control of servers and select the best one for Lan-Play
 .-Select the server you prefer and press the connect button.
 
 # #NOTE:
-    Esta herramienta descarga y utiliza lan-play de 32 o 64 bits creado por spacemeowx2.
+    This tool downloads and uses 32-bit or 64-bit lan-play created by spacemeowx2.
 
 # Advanced Use
 
