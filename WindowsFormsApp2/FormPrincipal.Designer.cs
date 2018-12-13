@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblLanPlayVersion = new MaterialSkin.Controls.MaterialLabel();
             this.txtVersion = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lbStatus = new MaterialSkin.Controls.MaterialLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -55,22 +55,23 @@
             this.colEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colConectados = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPing = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // materialLabel1
+            // lblLanPlayVersion
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 502);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(121, 19);
-            this.materialLabel1.TabIndex = 7;
-            this.materialLabel1.Text = "Lan-Play Version";
+            this.lblLanPlayVersion.AutoSize = true;
+            this.lblLanPlayVersion.Depth = 0;
+            this.lblLanPlayVersion.Font = new System.Drawing.Font("Roboto", 11F);
+            this.lblLanPlayVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblLanPlayVersion.Location = new System.Drawing.Point(12, 502);
+            this.lblLanPlayVersion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblLanPlayVersion.Name = "lblLanPlayVersion";
+            this.lblLanPlayVersion.Size = new System.Drawing.Size(121, 19);
+            this.lblLanPlayVersion.TabIndex = 7;
+            this.lblLanPlayVersion.Text = "Lan-Play Version";
             // 
             // txtVersion
             // 
@@ -103,13 +104,13 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Help;
+            this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(415, 502);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(375, 502);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(122, 35);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(162, 35);
             this.materialRaisedButton1.TabIndex = 23;
             this.materialRaisedButton1.Text = "Conect";
             this.toolTip1.SetToolTip(this.materialRaisedButton1, "Connect to the selected server");
@@ -152,6 +153,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.linkLabel2.Location = new System.Drawing.Point(186, 503);
             this.linkLabel2.Name = "linkLabel2";
@@ -230,6 +232,7 @@
             this.dgvRecientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecientes.Size = new System.Drawing.Size(506, 383);
             this.dgvRecientes.TabIndex = 24;
+            this.dgvRecientes.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvRecientes_SortCompare);
             // 
             // labelServers
             // 
@@ -283,7 +286,6 @@
             this.cargaGrids.WorkerReportsProgress = true;
             this.cargaGrids.DoWork += new System.ComponentModel.DoWorkEventHandler(this.cargaGrids_DoWork);
             this.cargaGrids.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.cargaGrids_ProgressChanged);
-            this.cargaGrids.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.cargaGrids_RunWorkerCompleted);
             // 
             // ckInternet
             // 
@@ -327,12 +329,14 @@
             this.colServidor.HeaderText = "Servidor";
             this.colServidor.Name = "colServidor";
             this.colServidor.ReadOnly = true;
+            this.colServidor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colUbicacion
             // 
             this.colUbicacion.HeaderText = "Ubicación";
             this.colUbicacion.Name = "colUbicacion";
             this.colUbicacion.ReadOnly = true;
+            this.colUbicacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colEstatus
             // 
@@ -355,11 +359,27 @@
             this.colPing.ReadOnly = true;
             this.colPing.Width = 55;
             // 
+            // materialRaisedButton4
+            // 
+            this.materialRaisedButton4.BackColor = System.Drawing.SystemColors.Control;
+            this.materialRaisedButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.materialRaisedButton4.Depth = 0;
+            this.materialRaisedButton4.Location = new System.Drawing.Point(375, 543);
+            this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton4.Name = "materialRaisedButton4";
+            this.materialRaisedButton4.Primary = true;
+            this.materialRaisedButton4.Size = new System.Drawing.Size(78, 23);
+            this.materialRaisedButton4.TabIndex = 34;
+            this.materialRaisedButton4.Text = "Releases";
+            this.materialRaisedButton4.UseVisualStyleBackColor = false;
+            this.materialRaisedButton4.Click += new System.EventHandler(this.materialRaisedButton4_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 575);
+            this.Controls.Add(this.materialRaisedButton4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ckInternet);
             this.Controls.Add(this.ckConsola);
@@ -371,7 +391,7 @@
             this.Controls.Add(this.dgvRecientes);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.labelServers);
-            this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.lblLanPlayVersion);
             this.Controls.Add(this.txtVersion);
             this.Controls.Add(this.materialRaisedButton3);
             this.Controls.Add(this.lbStatus);
@@ -394,7 +414,7 @@
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel lblLanPlayVersion;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtVersion;
         private MaterialSkin.Controls.MaterialLabel lbStatus;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -419,6 +439,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colConectados;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPing;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton4;
     }
 }
 

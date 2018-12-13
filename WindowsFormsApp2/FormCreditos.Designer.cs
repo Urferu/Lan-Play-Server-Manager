@@ -47,9 +47,8 @@
             this.lbIpPublica.Location = new System.Drawing.Point(12, 82);
             this.lbIpPublica.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbIpPublica.Name = "lbIpPublica";
-            this.lbIpPublica.Size = new System.Drawing.Size(145, 19);
+            this.lbIpPublica.Size = new System.Drawing.Size(0, 19);
             this.lbIpPublica.TabIndex = 11;
-            this.lbIpPublica.Text = LenguagesManager.StringsCreditsLenguages.DesignedBy;
             // 
             // materialLabel1
             // 
@@ -60,9 +59,8 @@
             this.materialLabel1.Location = new System.Drawing.Point(12, 101);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(147, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(0, 19);
             this.materialLabel1.TabIndex = 12;
-            this.materialLabel1.Text = LenguagesManager.StringsCreditsLenguages.DevelopedBy;
             // 
             // materialLabel2
             // 
@@ -73,9 +71,8 @@
             this.materialLabel2.Location = new System.Drawing.Point(12, 120);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(171, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(0, 19);
             this.materialLabel2.TabIndex = 13;
-            this.materialLabel2.Text = LenguagesManager.StringsCreditsLenguages.ListServers;
             // 
             // materialLabel3
             // 
@@ -86,9 +83,8 @@
             this.materialLabel3.Location = new System.Drawing.Point(12, 139);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(204, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(0, 19);
             this.materialLabel3.TabIndex = 14;
-            this.materialLabel3.Text = LenguagesManager.StringsCreditsLenguages.SupportedBy;
             // 
             // materialLabel4
             // 
@@ -99,13 +95,13 @@
             this.materialLabel4.Location = new System.Drawing.Point(12, 187);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(99, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(0, 19);
             this.materialLabel4.TabIndex = 15;
-            this.materialLabel4.Text = LenguagesManager.StringsCreditsLenguages.FollowOn;
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.linkLabel1.Location = new System.Drawing.Point(13, 158);
             this.linkLabel1.Name = "linkLabel1";
@@ -118,6 +114,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.linkLabel2.Location = new System.Drawing.Point(13, 206);
             this.linkLabel2.Name = "linkLabel2";

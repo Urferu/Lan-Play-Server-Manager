@@ -3,6 +3,7 @@ using System.IO;
 using System.Net;
 using MaterialSkin;
 using System.Drawing;
+using System.Threading;
 using System.Net.Cache;
 using System.Diagnostics;
 using System.Globalization;
@@ -134,6 +135,12 @@ namespace WindowsFormsApp2
                 colEstatus.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderStatus"];
                 colConectados.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderUsers"];
                 colPing.HeaderText = datosDelIdioma["StringsPrincipalLenguages"]["HeaderPing"];
+
+                if(datosDelIdioma["StringsPrincipalLenguages"]["ButtonReleases", TiposDevolver.Boleano])
+                    materialRaisedButton4.Text = datosDelIdioma["StringsPrincipalLenguages"]["ButtonReleases"];
+
+                if (datosDelIdioma["StringsPrincipalLenguages"]["LanPlayVersionLabel", TiposDevolver.Boleano])
+                    lblLanPlayVersion.Text = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayVersionLabel"];
             }
         }
 
@@ -512,6 +519,11 @@ namespace WindowsFormsApp2
             formCreditosVer.ShowDialog();
         }
 
+        private void materialRaisedButton4_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/Urferu/Lan-Play-Server-Manager/releases");
+        }
+
         private void ObtenerEstatusDatos(string servidor,ref string estado, ref string latencia)
         {
             if (servidor.Equals("18.191.92.182"))
@@ -554,6 +566,7 @@ namespace WindowsFormsApp2
 
         #region Servidores
 
+        int contadorEstadosTerminados = 0;
         private string DownloadStringServer(string url)
         {
             string responseFromServer = string.Empty;
@@ -589,12 +602,10 @@ namespace WindowsFormsApp2
         }
         private void cargaGrids_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            contadorEstadosTerminados = 0;
             List<string> servers = new List<string>();
-            string latencia = "";
-            string estado = "";
             string server = "";
             string ubicacion = "";
-            int conectados = 0;
             int indice = 0;
             string serversDatos = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/Servers/Servers.txt");
             if (!string.IsNullOrWhiteSpace(serversDatos))
@@ -604,17 +615,17 @@ namespace WindowsFormsApp2
 
             foreach (string serverInfo in servers)
             {
-                server = serverInfo.Split(',')[0];
-                ubicacion = serverInfo.Split(',')[1];
-                ObtenerEstatusDatos(server, ref estado, ref latencia);
-                conectados = ObtenerConectados(server);
-                if (conectados > 0)
+                if (!string.IsNullOrWhiteSpace(serverInfo))
                 {
-                    estado = "Online";
+                    server = serverInfo.Split(',')[0];
+                    ubicacion = serverInfo.Split(',')[1];
+
+                    Thread hiloEstado = new Thread(new ParameterizedThreadStart(AgregarEstadoServer));
+                    object[] datos = new object[] { server, ubicacion, "...", "...", "...", indice };
+                    cargaGrids.ReportProgress(indice, (object)datos);
+                    hiloEstado.Start((object)datos);
+                    indice++;
                 }
-                object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
-                cargaGrids.ReportProgress(indice, (object)datos);
-                indice++;
             }
 
             if (File.Exists("Servers.txt"))
@@ -637,14 +648,10 @@ namespace WindowsFormsApp2
                             server = leido.Split(',')[0];
                             ubicacion = leido.Split(',')[1];
                         }
-                        ObtenerEstatusDatos(server, ref estado, ref latencia);
-                        conectados = ObtenerConectados(server);
-                        if (conectados > 0)
-                        {
-                            estado = "Online";
-                        }
-                        object[] datos = new object[] { server, ubicacion, estado, conectados, latencia };
+                        Thread hiloEstado = new Thread(new ParameterizedThreadStart(AgregarEstadoServer));
+                        object[] datos = new object[] { server, ubicacion, "...", "...", "...", indice };
                         cargaGrids.ReportProgress(indice, (object)datos);
+                        hiloEstado.Start((object)datos);
                         indice++;
                     }
                     leido = srArchivo.ReadLine();
@@ -657,21 +664,61 @@ namespace WindowsFormsApp2
         {
             object[] datos = (object[])e.UserState;
             dgvRecientes.Rows.Add("Server " + (e.ProgressPercentage + 1), datos[0], datos[1], datos[2], datos[3], datos[4]);
-            if (datos[2].ToString().Equals("Online"))
-            {
-                dgvRecientes.Rows[e.ProgressPercentage].DefaultCellStyle.BackColor = Color.LightGreen;
-            }
-            else
-            {
-                dgvRecientes.Rows[e.ProgressPercentage].DefaultCellStyle.BackColor = Color.IndianRed;
-            }
             this.Refresh();
         }
 
-        private void cargaGrids_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        private void AgregarEstadoServer(object datos)
         {
-            materialRaisedButton2.Enabled = true;
-            labelServers.Text = LenguagesManager.StringsPrincipalLenguages.Servers;
+            object[] datosServer = (object[])datos;
+            string latencia = "";
+            string estado = "";
+            int conectados = 0;
+            int indice = (int)datosServer[5];
+            string server = datosServer[0].ToString();
+            ObtenerEstatusDatos(server, ref estado, ref latencia);
+            conectados = ObtenerConectados(server);
+            if (conectados > 0)
+            {
+                estado = "Online";
+            }
+            ActualizarEstadosServer(indice, estado, latencia, conectados);
+        }
+
+        private delegate void ActualizarEstadosServerDelegado(int indice, string estado, string latencia, int conectados);
+
+        private void ActualizarEstadosServer(int indice, string estado, string latencia, int conectados)
+        {
+            if(InvokeRequired)
+            {
+                Invoke(new ActualizarEstadosServerDelegado(ActualizarEstadosServer), indice, estado, latencia, conectados);
+            }
+            else
+            {
+                try
+                {
+                    dgvRecientes.Rows[indice].Cells[colEstatus.Index].Value = estado;
+                    dgvRecientes.Rows[indice].Cells[colPing.Index].Value = latencia;
+                    dgvRecientes.Rows[indice].Cells[colConectados.Index].Value = conectados;
+                    if (estado.ToString().Equals("Online"))
+                    {
+                        dgvRecientes.Rows[indice].DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                    else
+                    {
+                        dgvRecientes.Rows[indice].DefaultCellStyle.BackColor = Color.IndianRed;
+                    }
+                    dgvRecientes.Refresh();
+                    contadorEstadosTerminados++;
+                    if (contadorEstadosTerminados >= dgvRecientes.Rows.Count)
+                    {
+                        materialRaisedButton2.Enabled = true;
+                        labelServers.Text = LenguagesManager.StringsPrincipalLenguages.Servers;
+                    }
+                }
+                catch
+                {
+                }
+            }
         }
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
@@ -680,6 +727,74 @@ namespace WindowsFormsApp2
             materialRaisedButton2.Enabled = false;
             labelServers.Text = LenguagesManager.StringsPrincipalLenguages.ServersLoading; ;
             cargaGrids.RunWorkerAsync();
+        }
+
+        private void dgvRecientes_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            if (e.Column == colPing)
+            {
+                float v1, v2;
+
+                if (e.CellValue1 == null)
+                    v1 = -1;
+                else
+                {
+                    if (!float.TryParse(e.CellValue1.ToString().Replace(">","").Replace("ms","").Replace("s",""), NumberStyles.AllowDecimalPoint, CultureInfo.GetCultureInfo("en-GB"), out v1))
+                        v1 = -1;
+                }
+
+                if (e.CellValue2 == null)
+                    v2 = -1;
+                else
+                {
+                    if (!float.TryParse(e.CellValue2.ToString().Replace(">", "").Replace("ms", "").Replace("s", ""), NumberStyles.AllowDecimalPoint, CultureInfo.GetCultureInfo("en-GB"), out v2))
+                        v2 = -1;
+                }
+
+                if (e.CellValue1.ToString().Contains("<") && e.CellValue2.ToString().Contains(">"))
+                    e.SortResult = 1;
+                else if (e.CellValue1.ToString().Contains(">") && e.CellValue2.ToString().Contains("<"))
+                    e.SortResult = -1;
+                else if ((e.CellValue1.ToString().Contains("<") || !e.CellValue1.ToString().Contains(">")) && !e.CellValue2.ToString().Contains("<") && !e.CellValue2.ToString().Contains(">"))
+                    e.SortResult = -1;
+                else if (v1 < v2)
+                    e.SortResult = -1;
+                else if (v1 > v2)
+                    e.SortResult = 1;
+                else
+                    e.SortResult = 0;
+
+                e.Handled = true;
+            }
+            else if(e.Column == colConectados)
+            {
+                float v1, v2;
+
+                if (e.CellValue1 == null)
+                    v1 = -1;
+                else
+                {
+                    if (!float.TryParse(e.CellValue1.ToString(), NumberStyles.AllowDecimalPoint, CultureInfo.GetCultureInfo("en-GB"), out v1))
+                        v1 = -1;
+                }
+
+                if (e.CellValue2 == null)
+                    v2 = -1;
+                else
+                {
+                    if (!float.TryParse(e.CellValue1.ToString(), NumberStyles.AllowDecimalPoint, CultureInfo.GetCultureInfo("en-GB"), out v2))
+                        v2 = -1;
+                }
+
+                if (v1 < v2)
+                    e.SortResult = -1;
+                else if (v1 > v2)
+                    e.SortResult = 1;
+                else
+                    e.SortResult = 0;
+
+                e.Handled = true;
+            }
         }
         #endregion
     }

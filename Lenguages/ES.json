@@ -14,6 +14,7 @@
         "ButtonCredits": "Créditos",
         "Credits": "Muestra la información de la consola de lan-play.",
         "LanPlayConsoleLabel": "Aqui se aparecera la información de lan-play",
+        "LanPlayVersionLabel": "Versión de Lan-Play",
         "HeaderServer": "Servidor",
         "HeaderLocation": "Ubicación",
         "HeaderStatus": "Estatus",
