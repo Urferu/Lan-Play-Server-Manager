@@ -1,7 +1,7 @@
 35.236.10.223,US-West CA
 nycnsw.duckdns.org,US-NYC
 nxlan.duckdns.org,US-Northwest WA
-pcoh.ddns.net,US
+pcoh.ddns.net,US-TN
 fr.fadx.co.uk,EU-(France)
 relay1.fadx.co.uk,EU-(UK)
 switch.glaciergaming.co.uk,EU-(UK)
