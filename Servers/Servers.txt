@@ -5,8 +5,8 @@ pcoh.ddns.net,US-TN
 fr.fadx.co.uk,EU-(France)
 switch.glaciergaming.co.uk,EU-(UK)
 switch.homelab.tech,EU-(UK)
-bandits.duckdns.org,EU-(Spain)
 memehouse.de,EU-(Germany)
 relay.it-cybergate.club,EU-(Germany)
+177.54.110.45,Brazil
 slp.rush-hour.wo.tc,Korea
 lithium2g.ddns.net,Australia
