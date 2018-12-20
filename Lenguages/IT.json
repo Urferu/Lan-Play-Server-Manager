@@ -19,10 +19,10 @@
         "HeaderStatus": "Stato",
         "HeaderUsers": "connesso",
         "HeaderPing": "Ping",
-        "checkAutoInterfaz": "selecionar interface",
-            "UpdateMessage": "Existe uma nova versão. \nQuer atualizar?",
-            "ButtonLastVersionLP": "Última versão",
-            "ToolTipLastVersionLP": "Obtenha a última versão do Lan-Play"
+        "checkAutoInterfaz": "Seleziona l'interfaccia",
+            "UpdateMessage": "C'è una nuova versione. \nVuoi aggiornare?",
+            "ButtonLastVersionLP": "Ultima versione",
+            "ToolTipLastVersionLP": "Scarica l'ultima versione di Lan-Play"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Progettato da: D3fau4",
