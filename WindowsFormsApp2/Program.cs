@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
 
 namespace WindowsFormsApp2
 {
@@ -15,7 +14,7 @@ namespace WindowsFormsApp2
             if (!File.Exists("MaterialSkin.dll"))
             {
                 FileStream fsArchivo = new FileStream("MaterialSkin.dll", FileMode.Create);
-                fsArchivo.Write(global::WindowsFormsApp2.Properties.Resources.MaterialSkin, 0, global::WindowsFormsApp2.Properties.Resources.MaterialSkin.Length);
+                fsArchivo.Write(Properties.Resources.MaterialSkin, 0, Properties.Resources.MaterialSkin.Length);
                 fsArchivo.Close();
             }
             Lanzador.lanzar();

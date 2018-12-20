@@ -240,6 +240,7 @@ namespace WindowsFormsApp2
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             bool ejecutar = true;
+            identificadorIp = "";
             ActivarDesactivarControles(false);
             if (Convert.ToInt32(materialRaisedButton1.Tag).Equals(0))
             {

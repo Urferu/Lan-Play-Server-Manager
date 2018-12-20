@@ -21,6 +21,12 @@ namespace WindowsFormsApp2
                 m.ColorScheme = new ColorScheme(Primary.Red800, Primary.Red700, Primary.Red600, Accent.Red400, TextShade.WHITE);
             }
 
+            lbIpPublica.Text = LenguagesManager.StringsCreditsLenguages.DesignedBy;
+            materialLabel1.Text = LenguagesManager.StringsCreditsLenguages.DevelopedBy;
+            materialLabel2.Text = LenguagesManager.StringsCreditsLenguages.ListServers;
+            materialLabel3.Text = LenguagesManager.StringsCreditsLenguages.SupportedBy;
+            materialLabel4.Text = LenguagesManager.StringsCreditsLenguages.FollowOn;
+
             LinkLabel.Link linkDiscord = new LinkLabel.Link();
             linkDiscord.LinkData = "https://discord.gg/q6hdKc8";
             LinkLabel.Link linkRadikal = new LinkLabel.Link();

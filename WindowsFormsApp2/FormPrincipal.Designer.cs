@@ -42,6 +42,12 @@
             this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.dgvRecientes = new System.Windows.Forms.DataGridView();
+            this.colNumServer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUbicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colConectados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelServers = new MaterialSkin.Controls.MaterialLabel();
             this.lblLanPlay = new MaterialSkin.Controls.MaterialLabel();
             this.pnDatos = new System.Windows.Forms.Panel();
@@ -49,13 +55,9 @@
             this.cargaGrids = new System.ComponentModel.BackgroundWorker();
             this.ckInternet = new MaterialSkin.Controls.MaterialCheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.colNumServer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colServidor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUbicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEstatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colConectados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPing = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ckAutoSelectInterfaz = new MaterialSkin.Controls.MaterialCheckBox();
+            this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +68,7 @@
             this.lblLanPlayVersion.Depth = 0;
             this.lblLanPlayVersion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblLanPlayVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblLanPlayVersion.Location = new System.Drawing.Point(12, 502);
+            this.lblLanPlayVersion.Location = new System.Drawing.Point(12, 522);
             this.lblLanPlayVersion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblLanPlayVersion.Name = "lblLanPlayVersion";
             this.lblLanPlayVersion.Size = new System.Drawing.Size(121, 19);
@@ -77,7 +79,7 @@
             // 
             this.txtVersion.Depth = 0;
             this.txtVersion.Hint = "0.0.X";
-            this.txtVersion.Location = new System.Drawing.Point(12, 524);
+            this.txtVersion.Location = new System.Drawing.Point(12, 544);
             this.txtVersion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.PasswordChar = '\0';
@@ -86,7 +88,7 @@
             this.txtVersion.SelectionStart = 0;
             this.txtVersion.Size = new System.Drawing.Size(165, 23);
             this.txtVersion.TabIndex = 8;
-            this.txtVersion.Text = "0.0.6";
+            this.txtVersion.Text = "v0.0.7";
             this.txtVersion.UseSystemPasswordChar = false;
             // 
             // lbStatus
@@ -95,7 +97,7 @@
             this.lbStatus.Depth = 0;
             this.lbStatus.Font = new System.Drawing.Font("Roboto", 11F);
             this.lbStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbStatus.Location = new System.Drawing.Point(12, 547);
+            this.lbStatus.Location = new System.Drawing.Point(12, 567);
             this.lbStatus.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(0, 19);
@@ -106,7 +108,7 @@
             this.materialRaisedButton1.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(375, 502);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(375, 522);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -137,7 +139,7 @@
             // 
             this.txtPmtu.Depth = 0;
             this.txtPmtu.Hint = "0.0.X";
-            this.txtPmtu.Location = new System.Drawing.Point(186, 524);
+            this.txtPmtu.Location = new System.Drawing.Point(186, 544);
             this.txtPmtu.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPmtu.Name = "txtPmtu";
             this.txtPmtu.PasswordChar = '\0';
@@ -146,7 +148,7 @@
             this.txtPmtu.SelectionStart = 0;
             this.txtPmtu.Size = new System.Drawing.Size(41, 23);
             this.txtPmtu.TabIndex = 29;
-            this.txtPmtu.Text = "1470";
+            this.txtPmtu.Text = "1500";
             this.toolTip1.SetToolTip(this.txtPmtu, "mtu that will be used for the connection,");
             this.txtPmtu.UseSystemPasswordChar = false;
             // 
@@ -155,7 +157,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.linkLabel2.Location = new System.Drawing.Point(186, 503);
+            this.linkLabel2.Location = new System.Drawing.Point(186, 523);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(41, 18);
             this.linkLabel2.TabIndex = 30;
@@ -169,7 +171,7 @@
             this.ckConsola.AutoSize = true;
             this.ckConsola.Depth = 0;
             this.ckConsola.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckConsola.Location = new System.Drawing.Point(230, 524);
+            this.ckConsola.Location = new System.Drawing.Point(230, 552);
             this.ckConsola.Margin = new System.Windows.Forms.Padding(0);
             this.ckConsola.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckConsola.MouseState = MaterialSkin.MouseState.HOVER;
@@ -187,7 +189,7 @@
             this.materialRaisedButton3.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Help;
             this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 543);
+            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 563);
             this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton3.Name = "materialRaisedButton3";
             this.materialRaisedButton3.Primary = true;
@@ -233,6 +235,49 @@
             this.dgvRecientes.Size = new System.Drawing.Size(506, 383);
             this.dgvRecientes.TabIndex = 24;
             this.dgvRecientes.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvRecientes_SortCompare);
+            // 
+            // colNumServer
+            // 
+            this.colNumServer.HeaderText = "No.";
+            this.colNumServer.Name = "colNumServer";
+            this.colNumServer.ReadOnly = true;
+            this.colNumServer.Width = 75;
+            // 
+            // colServidor
+            // 
+            this.colServidor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colServidor.HeaderText = "Servidor";
+            this.colServidor.Name = "colServidor";
+            this.colServidor.ReadOnly = true;
+            this.colServidor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colUbicacion
+            // 
+            this.colUbicacion.HeaderText = "Ubicación";
+            this.colUbicacion.Name = "colUbicacion";
+            this.colUbicacion.ReadOnly = true;
+            this.colUbicacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colEstatus
+            // 
+            this.colEstatus.HeaderText = "Estatus";
+            this.colEstatus.Name = "colEstatus";
+            this.colEstatus.ReadOnly = true;
+            this.colEstatus.Width = 65;
+            // 
+            // colConectados
+            // 
+            this.colConectados.HeaderText = "Conectados";
+            this.colConectados.Name = "colConectados";
+            this.colConectados.ReadOnly = true;
+            this.colConectados.Width = 65;
+            // 
+            // colPing
+            // 
+            this.colPing.HeaderText = "Latencia";
+            this.colPing.Name = "colPing";
+            this.colPing.ReadOnly = true;
+            this.colPing.Width = 55;
             // 
             // labelServers
             // 
@@ -294,7 +339,7 @@
             this.ckInternet.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckInternet.Depth = 0;
             this.ckInternet.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckInternet.Location = new System.Drawing.Point(230, 499);
+            this.ckInternet.Location = new System.Drawing.Point(230, 525);
             this.ckInternet.Margin = new System.Windows.Forms.Padding(0);
             this.ckInternet.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckInternet.MouseState = MaterialSkin.MouseState.HOVER;
@@ -316,55 +361,12 @@
             this.comboBox1.TabIndex = 33;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // colNumServer
-            // 
-            this.colNumServer.HeaderText = "No.";
-            this.colNumServer.Name = "colNumServer";
-            this.colNumServer.ReadOnly = true;
-            this.colNumServer.Width = 75;
-            // 
-            // colServidor
-            // 
-            this.colServidor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colServidor.HeaderText = "Servidor";
-            this.colServidor.Name = "colServidor";
-            this.colServidor.ReadOnly = true;
-            this.colServidor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colUbicacion
-            // 
-            this.colUbicacion.HeaderText = "Ubicación";
-            this.colUbicacion.Name = "colUbicacion";
-            this.colUbicacion.ReadOnly = true;
-            this.colUbicacion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colEstatus
-            // 
-            this.colEstatus.HeaderText = "Estatus";
-            this.colEstatus.Name = "colEstatus";
-            this.colEstatus.ReadOnly = true;
-            this.colEstatus.Width = 65;
-            // 
-            // colConectados
-            // 
-            this.colConectados.HeaderText = "Conectados";
-            this.colConectados.Name = "colConectados";
-            this.colConectados.ReadOnly = true;
-            this.colConectados.Width = 65;
-            // 
-            // colPing
-            // 
-            this.colPing.HeaderText = "Latencia";
-            this.colPing.Name = "colPing";
-            this.colPing.ReadOnly = true;
-            this.colPing.Width = 55;
-            // 
             // materialRaisedButton4
             // 
             this.materialRaisedButton4.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton4.Depth = 0;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(375, 543);
+            this.materialRaisedButton4.Location = new System.Drawing.Point(375, 563);
             this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton4.Name = "materialRaisedButton4";
             this.materialRaisedButton4.Primary = true;
@@ -374,11 +376,49 @@
             this.materialRaisedButton4.UseVisualStyleBackColor = false;
             this.materialRaisedButton4.Click += new System.EventHandler(this.materialRaisedButton4_Click);
             // 
+            // ckAutoSelectInterfaz
+            // 
+            this.ckAutoSelectInterfaz.AutoSize = true;
+            this.ckAutoSelectInterfaz.Checked = true;
+            this.ckAutoSelectInterfaz.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckAutoSelectInterfaz.Depth = 0;
+            this.ckAutoSelectInterfaz.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ckAutoSelectInterfaz.Location = new System.Drawing.Point(245, 80);
+            this.ckAutoSelectInterfaz.Margin = new System.Windows.Forms.Padding(0);
+            this.ckAutoSelectInterfaz.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ckAutoSelectInterfaz.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ckAutoSelectInterfaz.Name = "ckAutoSelectInterfaz";
+            this.ckAutoSelectInterfaz.Ripple = true;
+            this.ckAutoSelectInterfaz.Size = new System.Drawing.Size(179, 30);
+            this.ckAutoSelectInterfaz.TabIndex = 35;
+            this.ckAutoSelectInterfaz.Text = "Select network interface";
+            this.ckAutoSelectInterfaz.UseVisualStyleBackColor = true;
+            // 
+            // materialCheckBox1
+            // 
+            this.materialCheckBox1.AutoSize = true;
+            this.materialCheckBox1.Checked = true;
+            this.materialCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.materialCheckBox1.Depth = 0;
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox1.Location = new System.Drawing.Point(230, 499);
+            this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckBox1.Name = "materialCheckBox1";
+            this.materialCheckBox1.Ripple = true;
+            this.materialCheckBox1.Size = new System.Drawing.Size(179, 30);
+            this.materialCheckBox1.TabIndex = 36;
+            this.materialCheckBox1.Text = "Select network interface";
+            this.materialCheckBox1.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 575);
+            this.ClientSize = new System.Drawing.Size(549, 594);
+            this.Controls.Add(this.materialCheckBox1);
+            this.Controls.Add(this.ckAutoSelectInterfaz);
             this.Controls.Add(this.materialRaisedButton4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ckInternet);
@@ -440,6 +480,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colConectados;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPing;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton4;
+        private MaterialSkin.Controls.MaterialCheckBox ckAutoSelectInterfaz;
+        private MaterialSkin.Controls.MaterialCheckBox materialCheckBox1;
     }
 }
 
