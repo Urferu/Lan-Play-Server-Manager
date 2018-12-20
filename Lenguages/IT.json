@@ -20,7 +20,7 @@
         "HeaderUsers": "connesso",
         "HeaderPing": "Ping",
         "checkAutoInterfaz": "selecionar interface",
-            "UpdateMessage": "Existe uma nova versão. \NQuer atualizar?",
+            "UpdateMessage": "Existe uma nova versão. \nQuer atualizar?",
             "ButtonLastVersionLP": "Última versão",
             "ToolTipLastVersionLP": "Obtenha a última versão do Lan-Play"
     },
