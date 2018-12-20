@@ -18,7 +18,11 @@
         "HeaderLocation": "Emplacement",
         "HeaderStatus": "Statut",
         "HeaderUsers": "Connecté",
-        "HeaderPing": "Ping"
+        "HeaderPing": "Ping",
+        "checkAutoInterfaz": "Sélectionnez l'interface",
+            "UpdateMessage": "Il existe une nouvelle version. \nVoulez-vous mettre à jour?",
+            "ButtonLastVersionLP": "Dernière version",
+            "ToolTipLastVersionLP": "Obtenez la dernière version de Lan-Play"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Conçu par: D3fau4",
