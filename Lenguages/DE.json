@@ -18,7 +18,11 @@
         "HeaderLocation": "Landkarte",
         "HeaderStatus": "Status",
         "HeaderUsers": "Verbunden",
-        "HeaderPing": "Ping"
+        "HeaderPing": "Ping",
+        "checkAutoInterfaz": "Schnittstelle auswählen",
+            "UpdateMessage": "Es gibt eine neue Version. \nMöchten Sie ein Update durchführen?",
+            "ButtonLastVersionLP": "Letzte Version",
+            "ToolTipLastVersionLP": "Holen Sie sich die neueste Version von Lan-Play"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Entworfen von: D3fau4",
