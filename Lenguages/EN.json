@@ -19,7 +19,7 @@
         "HeaderStatus": "Status",
         "HeaderUsers": "Conected",
         "HeaderPing": "Ping",
-        "checkAutoInterfaz": "Select interface"m,
+        "checkAutoInterfaz": "Select interface",
 		"UpdateMessage": "There is a new version.\nDo you want to update?",
 		"ButtonLastVersionLP": "Last Version",
 		"ToolTipLastVersionLP": "Get the latest version of Lan-Play"

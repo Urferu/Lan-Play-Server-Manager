@@ -559,7 +559,7 @@ namespace WindowsFormsApp2
             }
             else
             {
-                Width = 549;
+                Width = 566;
                 materialRaisedButton3.Location = new Point(Width - 90, materialRaisedButton3.Location.Y);
             }
         }
@@ -568,7 +568,13 @@ namespace WindowsFormsApp2
         {
             if (Convert.ToInt32(materialRaisedButton1.Tag).Equals(1))
             {
-                bat.Kill();
+                try
+                {
+                    bat.Kill();
+                }
+                catch
+                {
+                }
             }
             LoadPmtu(true);
         }

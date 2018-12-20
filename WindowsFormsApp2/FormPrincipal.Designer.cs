@@ -39,6 +39,7 @@
             this.txtPmtu = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.ckConsola = new MaterialSkin.Controls.MaterialCheckBox();
+            this.buttonLast = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.dgvRecientes = new System.Windows.Forms.DataGridView();
@@ -57,7 +58,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ckAutoSelectInterfaz = new MaterialSkin.Controls.MaterialCheckBox();
-            this.buttonLast = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
@@ -108,7 +108,7 @@
             this.materialRaisedButton1.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(375, 503);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(390, 503);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -124,7 +124,7 @@
             this.materialRaisedButton2.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(444, 75);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(459, 75);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
@@ -184,12 +184,28 @@
             this.ckConsola.UseVisualStyleBackColor = true;
             this.ckConsola.CheckedChanged += new System.EventHandler(this.ckConsola_CheckedChanged);
             // 
+            // buttonLast
+            // 
+            this.buttonLast.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonLast.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLast.Depth = 0;
+            this.buttonLast.Location = new System.Drawing.Point(12, 548);
+            this.buttonLast.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonLast.Name = "buttonLast";
+            this.buttonLast.Primary = true;
+            this.buttonLast.Size = new System.Drawing.Size(165, 23);
+            this.buttonLast.TabIndex = 37;
+            this.buttonLast.Text = "Last Version";
+            this.toolTip1.SetToolTip(this.buttonLast, "Get the latest version of Lan-Play");
+            this.buttonLast.UseVisualStyleBackColor = false;
+            this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
+            // 
             // materialRaisedButton3
             // 
             this.materialRaisedButton3.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Help;
             this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 544);
+            this.materialRaisedButton3.Location = new System.Drawing.Point(474, 544);
             this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton3.Name = "materialRaisedButton3";
             this.materialRaisedButton3.Primary = true;
@@ -203,7 +219,7 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(6, 16);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -226,13 +242,13 @@
             this.colEstatus,
             this.colConectados,
             this.colPing});
-            this.dgvRecientes.Location = new System.Drawing.Point(31, 113);
+            this.dgvRecientes.Location = new System.Drawing.Point(16, 113);
             this.dgvRecientes.MultiSelect = false;
             this.dgvRecientes.Name = "dgvRecientes";
             this.dgvRecientes.ReadOnly = true;
             this.dgvRecientes.RowHeadersVisible = false;
             this.dgvRecientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecientes.Size = new System.Drawing.Size(506, 383);
+            this.dgvRecientes.Size = new System.Drawing.Size(536, 383);
             this.dgvRecientes.TabIndex = 24;
             this.dgvRecientes.SortCompare += new System.Windows.Forms.DataGridViewSortCompareEventHandler(this.dgvRecientes_SortCompare);
             // 
@@ -355,7 +371,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(416, 34);
+            this.comboBox1.Location = new System.Drawing.Point(431, 34);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 33;
@@ -366,7 +382,7 @@
             this.materialRaisedButton4.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton4.Depth = 0;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(375, 544);
+            this.materialRaisedButton4.Location = new System.Drawing.Point(390, 544);
             this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton4.Name = "materialRaisedButton4";
             this.materialRaisedButton4.Primary = true;
@@ -394,30 +410,18 @@
             this.ckAutoSelectInterfaz.Text = "Select interface";
             this.ckAutoSelectInterfaz.UseVisualStyleBackColor = true;
             // 
-            // buttonLast
-            // 
-            this.buttonLast.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonLast.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLast.Depth = 0;
-            this.buttonLast.Location = new System.Drawing.Point(12, 548);
-            this.buttonLast.MouseState = MaterialSkin.MouseState.HOVER;
-            this.buttonLast.Name = "buttonLast";
-            this.buttonLast.Primary = true;
-            this.buttonLast.Size = new System.Drawing.Size(165, 23);
-            this.buttonLast.TabIndex = 37;
-            this.buttonLast.Text = "Last Version";
-            this.toolTip1.SetToolTip(this.buttonLast, "Get the latest version of Lan-Play");
-            this.buttonLast.UseVisualStyleBackColor = false;
-            this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 594);
+            this.ClientSize = new System.Drawing.Size(566, 594);
+            this.Controls.Add(this.dgvRecientes);
+            this.Controls.Add(this.txtVersion);
+            this.Controls.Add(this.materialRaisedButton3);
+            this.Controls.Add(this.materialRaisedButton4);
+            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.buttonLast);
             this.Controls.Add(this.ckAutoSelectInterfaz);
-            this.Controls.Add(this.materialRaisedButton4);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ckInternet);
             this.Controls.Add(this.ckConsola);
@@ -426,12 +430,8 @@
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.pnDatos);
             this.Controls.Add(this.lblLanPlay);
-            this.Controls.Add(this.dgvRecientes);
-            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.labelServers);
             this.Controls.Add(this.lblLanPlayVersion);
-            this.Controls.Add(this.txtVersion);
-            this.Controls.Add(this.materialRaisedButton3);
             this.Controls.Add(this.lbStatus);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(7, 227);

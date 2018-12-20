@@ -25,6 +25,7 @@ C:\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFor
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\Release\Lan-Play-Server-Manager.exe
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\Release\Lan-Play-Server-Manager.pdb
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\Release\MaterialSkin.dll
+\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.formCreditos.resources
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.FormPrincipal.resources
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
@@ -32,4 +33,3 @@ C:\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFor
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\Lan-Play-Server-Manager.exe
 \\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\Lan-Play-Server-Manager.pdb
-\\10.28.117.165\93050968\Switch\lanplay\proyectos\Lan-play\Lan-Play-Server-Manager\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache

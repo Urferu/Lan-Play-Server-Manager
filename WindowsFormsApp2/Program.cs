@@ -33,7 +33,6 @@ namespace WindowsFormsApp2
                 }
                 Lanzador.lanzar();
             }
-            Lanzador.lanzar();
         }
     }
 }
