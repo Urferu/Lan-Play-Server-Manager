@@ -57,7 +57,7 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.materialRaisedButton4 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ckAutoSelectInterfaz = new MaterialSkin.Controls.MaterialCheckBox();
-            this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
+            this.buttonLast = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecientes)).BeginInit();
             this.pnDatos.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +68,7 @@
             this.lblLanPlayVersion.Depth = 0;
             this.lblLanPlayVersion.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblLanPlayVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblLanPlayVersion.Location = new System.Drawing.Point(12, 522);
+            this.lblLanPlayVersion.Location = new System.Drawing.Point(12, 503);
             this.lblLanPlayVersion.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblLanPlayVersion.Name = "lblLanPlayVersion";
             this.lblLanPlayVersion.Size = new System.Drawing.Size(121, 19);
@@ -79,7 +79,7 @@
             // 
             this.txtVersion.Depth = 0;
             this.txtVersion.Hint = "0.0.X";
-            this.txtVersion.Location = new System.Drawing.Point(12, 544);
+            this.txtVersion.Location = new System.Drawing.Point(12, 525);
             this.txtVersion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.PasswordChar = '\0';
@@ -108,7 +108,7 @@
             this.materialRaisedButton1.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(375, 522);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(375, 503);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -139,7 +139,7 @@
             // 
             this.txtPmtu.Depth = 0;
             this.txtPmtu.Hint = "0.0.X";
-            this.txtPmtu.Location = new System.Drawing.Point(186, 544);
+            this.txtPmtu.Location = new System.Drawing.Point(186, 524);
             this.txtPmtu.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPmtu.Name = "txtPmtu";
             this.txtPmtu.PasswordChar = '\0';
@@ -157,7 +157,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.linkLabel2.Location = new System.Drawing.Point(186, 523);
+            this.linkLabel2.Location = new System.Drawing.Point(186, 503);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(41, 18);
             this.linkLabel2.TabIndex = 30;
@@ -189,7 +189,7 @@
             this.materialRaisedButton3.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton3.Cursor = System.Windows.Forms.Cursors.Help;
             this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 563);
+            this.materialRaisedButton3.Location = new System.Drawing.Point(459, 544);
             this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton3.Name = "materialRaisedButton3";
             this.materialRaisedButton3.Primary = true;
@@ -203,7 +203,7 @@
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialLabel2.Location = new System.Drawing.Point(6, 16);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -366,7 +366,7 @@
             this.materialRaisedButton4.BackColor = System.Drawing.SystemColors.Control;
             this.materialRaisedButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.materialRaisedButton4.Depth = 0;
-            this.materialRaisedButton4.Location = new System.Drawing.Point(375, 563);
+            this.materialRaisedButton4.Location = new System.Drawing.Point(375, 544);
             this.materialRaisedButton4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton4.Name = "materialRaisedButton4";
             this.materialRaisedButton4.Primary = true;
@@ -383,41 +383,39 @@
             this.ckAutoSelectInterfaz.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckAutoSelectInterfaz.Depth = 0;
             this.ckAutoSelectInterfaz.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckAutoSelectInterfaz.Location = new System.Drawing.Point(245, 80);
+            this.ckAutoSelectInterfaz.Location = new System.Drawing.Point(230, 499);
             this.ckAutoSelectInterfaz.Margin = new System.Windows.Forms.Padding(0);
             this.ckAutoSelectInterfaz.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckAutoSelectInterfaz.MouseState = MaterialSkin.MouseState.HOVER;
             this.ckAutoSelectInterfaz.Name = "ckAutoSelectInterfaz";
             this.ckAutoSelectInterfaz.Ripple = true;
-            this.ckAutoSelectInterfaz.Size = new System.Drawing.Size(179, 30);
-            this.ckAutoSelectInterfaz.TabIndex = 35;
-            this.ckAutoSelectInterfaz.Text = "Select network interface";
+            this.ckAutoSelectInterfaz.Size = new System.Drawing.Size(126, 30);
+            this.ckAutoSelectInterfaz.TabIndex = 36;
+            this.ckAutoSelectInterfaz.Text = "Select interface";
             this.ckAutoSelectInterfaz.UseVisualStyleBackColor = true;
             // 
-            // materialCheckBox1
+            // buttonLast
             // 
-            this.materialCheckBox1.AutoSize = true;
-            this.materialCheckBox1.Checked = true;
-            this.materialCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox1.Location = new System.Drawing.Point(230, 499);
-            this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckBox1.Name = "materialCheckBox1";
-            this.materialCheckBox1.Ripple = true;
-            this.materialCheckBox1.Size = new System.Drawing.Size(179, 30);
-            this.materialCheckBox1.TabIndex = 36;
-            this.materialCheckBox1.Text = "Select network interface";
-            this.materialCheckBox1.UseVisualStyleBackColor = true;
+            this.buttonLast.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonLast.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLast.Depth = 0;
+            this.buttonLast.Location = new System.Drawing.Point(12, 548);
+            this.buttonLast.MouseState = MaterialSkin.MouseState.HOVER;
+            this.buttonLast.Name = "buttonLast";
+            this.buttonLast.Primary = true;
+            this.buttonLast.Size = new System.Drawing.Size(165, 23);
+            this.buttonLast.TabIndex = 37;
+            this.buttonLast.Text = "Last Version";
+            this.toolTip1.SetToolTip(this.buttonLast, "Get the latest version of Lan-Play");
+            this.buttonLast.UseVisualStyleBackColor = false;
+            this.buttonLast.Click += new System.EventHandler(this.buttonLast_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 594);
-            this.Controls.Add(this.materialCheckBox1);
+            this.Controls.Add(this.buttonLast);
             this.Controls.Add(this.ckAutoSelectInterfaz);
             this.Controls.Add(this.materialRaisedButton4);
             this.Controls.Add(this.comboBox1);
@@ -481,7 +479,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPing;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton4;
         private MaterialSkin.Controls.MaterialCheckBox ckAutoSelectInterfaz;
-        private MaterialSkin.Controls.MaterialCheckBox materialCheckBox1;
+        private MaterialSkin.Controls.MaterialRaisedButton buttonLast;
     }
 }
 

@@ -26,6 +26,9 @@ namespace WindowsFormsApp2
         [System.Runtime.InteropServices.DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
         static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern int SetForegroundWindow(IntPtr hwnd);
+
         //assorted constants needed
         public static int GWL_STYLE = -16;
         public static int WS_CHILD = 0x40000000; //child window

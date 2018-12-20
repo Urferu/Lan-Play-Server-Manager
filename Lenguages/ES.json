@@ -20,7 +20,10 @@
         "HeaderStatus": "Estatus",
         "HeaderUsers": "Conectados",
         "HeaderPing": "Latencia",
-        "checkAutoInterfaz": "Seleccionar interfaz de red"
+        "checkAutoInterfaz": "Seleccionar interfaz",
+		"UpdateMessage": "Hay una nueva versión.\n¿Quieres actualizar?",
+		"ButtonLastVersionLP": "Ultíma Versión",
+		"ToolTipLastVersionLP": "Obtiene la ultima versión de Lan-Play"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Diseñado por: D3fau4",

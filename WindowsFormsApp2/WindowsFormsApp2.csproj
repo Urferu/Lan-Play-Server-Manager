@@ -39,13 +39,13 @@
     <ApplicationIcon>LanPlay.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C4936431635E534EBCDD711C0C2145084A1274A6</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>F7F4871A5CDB76D295229E7EEE30660E6C7E1002</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>
@@ -106,7 +106,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="cert-key-20181211-131232.pfx" />
     <None Include="Lan-Play-Server-Manager-Cert.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -123,7 +122,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="WindowsFormsApp2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -132,7 +130,6 @@
     <None Include="Resources\WinPcap_4_1_3.exe" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="20181018_211506.ico" />
     <Content Include="LanPlay.ico" />
     <None Include="Resources\MaterialSkin.dll" />
   </ItemGroup>

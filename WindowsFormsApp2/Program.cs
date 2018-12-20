@@ -17,6 +17,22 @@ namespace WindowsFormsApp2
                 fsArchivo.Write(Properties.Resources.MaterialSkin, 0, Properties.Resources.MaterialSkin.Length);
                 fsArchivo.Close();
             }
+
+            if (!AppDomain.CurrentDomain.FriendlyName.Equals("Lan-Play-Server-Manager.exe"))
+            {
+                File.Copy(AppDomain.CurrentDomain.FriendlyName, "Lan-Play-Server-Manager.exe", true);
+                System.Diagnostics.Process splc = new System.Diagnostics.Process();
+                splc.StartInfo = new System.Diagnostics.ProcessStartInfo("Lan-Play-Server-Manager.exe");
+                splc.Start();
+            }
+            else
+            {
+                if (File.Exists("Lan-Play-Server-Manager-Upd.exe"))
+                {
+                    File.Delete("Lan-Play-Server-Manager-Upd.exe");
+                }
+                Lanzador.lanzar();
+            }
             Lanzador.lanzar();
         }
     }

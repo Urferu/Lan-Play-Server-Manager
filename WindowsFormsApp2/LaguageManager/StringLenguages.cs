@@ -6,6 +6,7 @@
         public static string ButtonDisconnect;
         public static string Servers;
         public static string ServersLoading;
+        public static string UpdateMessage;
     }
 
     class StringsCreditsLenguages

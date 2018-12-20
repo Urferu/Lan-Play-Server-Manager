@@ -19,7 +19,10 @@
         "HeaderStatus": "Status",
         "HeaderUsers": "Conected",
         "HeaderPing": "Ping",
-        "checkAutoInterfaz": "Select network interface"
+        "checkAutoInterfaz": "Select interface"m,
+		"UpdateMessage": "There is a new version.\nDo you want to update?",
+		"ButtonLastVersionLP": "Last Version",
+		"ToolTipLastVersionLP": "Get the latest version of Lan-Play"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Designed by: D3fau4",

@@ -17,7 +17,8 @@ namespace WindowsFormsApp2
 {
     public partial class FormPrincipal : MaterialForm
     {
-        string versionActual = "v0.0.6";
+        const int _VERSION_MANAGER = 110;
+        string versionActual = "v0.0.7";
         string identificadorIp = "";
         Process bat;
         MaterialSkinManager m;
@@ -47,6 +48,22 @@ namespace WindowsFormsApp2
             LoadPmtu();
             txtVersion.Text = versionActual;
             lbStatus.BringToFront();
+            VerificarVersion();
+        }
+
+        private void VerificarVersion()
+        {
+            string versionRepositorio = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/last-version.txt");
+            if(!string.IsNullOrWhiteSpace(versionRepositorio))
+            {
+                if(_VERSION_MANAGER < Convert.ToInt32(versionRepositorio) &&
+                    MessageBox.Show(LenguagesManager.StringsPrincipalLenguages.UpdateMessage, this.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    downloadFile("Lan-Play-Server-Manager-Upd.exe", "https://github.com/Urferu/Lan-Play-Server-Manager/raw/master/WindowsFormsApp2/Release/Lan-Play-Server-Manager.exe");
+                    Process.Start("Lan-Play-Server-Manager-Upd.exe");
+                    this.Close();
+                }
+            }
         }
 
         private void FormPrincipal_Shown(object sender, EventArgs e)
@@ -62,6 +79,11 @@ namespace WindowsFormsApp2
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(e.Link.LinkData as string);
+        }
+
+        private void buttonLast_Click(object sender, EventArgs e)
+        {
+            txtVersion.Text = DownloadStringServer("https://raw.githubusercontent.com/Urferu/Lan-Play-Server-Manager/master/last-version-lan-play.txt");
         }
 
         #region Inicial
@@ -141,6 +163,24 @@ namespace WindowsFormsApp2
 
                 if (datosDelIdioma["StringsPrincipalLenguages"]["LanPlayVersionLabel", TiposDevolver.Boleano])
                     lblLanPlayVersion.Text = datosDelIdioma["StringsPrincipalLenguages"]["LanPlayVersionLabel"];
+
+                if (datosDelIdioma["StringsPrincipalLenguages"]["checkAutoInterfaz", TiposDevolver.Boleano])
+                    ckAutoSelectInterfaz.Text = datosDelIdioma["StringsPrincipalLenguages"]["checkAutoInterfaz"];
+
+                if (datosDelIdioma["StringsPrincipalLenguages"]["UpdateMessage", TiposDevolver.Boleano])
+                    LenguagesManager.StringsPrincipalLenguages.UpdateMessage = datosDelIdioma["StringsPrincipalLenguages"]["UpdateMessage"];
+                else
+                    LenguagesManager.StringsPrincipalLenguages.UpdateMessage = "There is a new version.\nDo you want to update?";
+
+                if (datosDelIdioma["StringsPrincipalLenguages"]["ButtonLastVersionLP", TiposDevolver.Boleano])
+                    buttonLast.Text = datosDelIdioma["StringsPrincipalLenguages"]["ButtonLastVersionLP"];
+                else
+                    buttonLast.Text = "Last Version";
+
+                if (datosDelIdioma["StringsPrincipalLenguages"]["ToolTipLastVersionLP", TiposDevolver.Boleano])
+                    toolTip1.SetToolTip(buttonLast, datosDelIdioma["StringsPrincipalLenguages"]["ToolTipLastVersionLP"]);
+                else
+                    toolTip1.SetToolTip(buttonLast, "Get the latest version of Lan - Play");
             }
         }
 
@@ -198,6 +238,12 @@ namespace WindowsFormsApp2
                                 case 3:
                                     txtPmtu.Text = linea;
                                     break;
+                                case 4:
+                                    if (!linea.Trim().Contains("1"))
+                                    {
+                                        ckConsola.Checked = false;
+                                    }
+                                    break;
                             }
                             numeroConfiguracion++;
                         }
@@ -213,6 +259,7 @@ namespace WindowsFormsApp2
                 configFile.WriteLine(ckInternet.Checked ? "1" : "0");
                 configFile.WriteLine(ckConsola.Checked ? "1" : "0");
                 configFile.WriteLine(txtPmtu.Text);
+                configFile.WriteLine(ckAutoSelectInterfaz.Checked ? "1" : "0");
                 configFile.Close();
             }
         }
@@ -254,7 +301,8 @@ namespace WindowsFormsApp2
 
                     if (ejecutar)
                     {
-                        GetFunctionalDiviceId();
+                        if(ckAutoSelectInterfaz.Checked)
+                            GetFunctionalDiviceId();
                         LaunchLanPlay();
                     }
                 }
@@ -385,7 +433,7 @@ namespace WindowsFormsApp2
                 StreamWriter swPmtu = new StreamWriter("pmtu.txt", false);
                 swPmtu.WriteLine(txtPmtu.Text.Trim());
                 swPmtu.Close();
-                parametros = "--pmtu "+txtPmtu.Text.Trim()+" --relay-server-addr " + dgvRecientes.CurrentRow.Cells[colServidor.Index].Value.ToString().Trim() + ":11451";
+                parametros = "--relay-server-addr " + dgvRecientes.CurrentRow.Cells[colServidor.Index].Value.ToString().Trim() + ":11451";
                 //Si se encontro identificador lanzamos directamente el identificador a lan-play
                 if (!string.IsNullOrWhiteSpace(identificadorIp))
                 {
@@ -396,6 +444,12 @@ namespace WindowsFormsApp2
                 if (!versionActual.Equals("v0.0.3") && !versionActual.Equals("v0.0.2") && !versionActual.Equals("v0.0.1") && !versionActual.Equals("v0.0.4") && ckInternet.Checked)
                 {
                     parametros = parametros + " --fake-internet";
+                }
+
+                //Si la versión es la 0.0.6 o mayor se agrega el parametro --fake-internet
+                if (!versionActual.Equals("v0.0.3") && !versionActual.Equals("v0.0.2") && !versionActual.Equals("v0.0.1") && !versionActual.Equals("v0.0.4") && !versionActual.Equals("v0.0.5"))
+                {
+                    parametros = parametros + " --pmtu " + txtPmtu.Text.Trim();
                 }
 
                 bat.StartInfo = new ProcessStartInfo("lan-play.exe", parametros);
@@ -420,6 +474,11 @@ namespace WindowsFormsApp2
                         this.pnDatos.Width,
                         this.pnDatos.Height, 1);
                     WinApi.RemoveBorder(bat);
+                }
+
+                if(true)
+                {
+                    WinApi.SetForegroundWindow(bat.MainWindowHandle);
                 }
                 lbStatus.Text = "";
                 this.Refresh();
@@ -600,6 +659,63 @@ namespace WindowsFormsApp2
             {
             }
             return responseFromServer;
+        }
+        /// <summary>
+        /// Descarga el archivo de la web
+        /// </summary>
+        /// <param name="exeDownload">Corresponde al nombre del archivo al descargarse</param>
+        /// <param name="url">Url donde se descargará el archivo</param>
+        /// <returns></returns>
+        private bool downloadFile(string exeDownload, string url, bool hidden = false)
+        {
+            int bufferSize = 1024;
+            byte[] buffer = new byte[bufferSize];
+            int bytesRead = 0;
+            bool cerrar = false;
+
+            var webrequest = (HttpWebRequest)WebRequest.Create(url);
+            webrequest.CachePolicy = noCachePolicy;
+
+            webrequest.Method = WebRequestMethods.Http.Get;
+            if (File.Exists(exeDownload))
+                File.SetAttributes(exeDownload, FileAttributes.Normal);
+            FileStream fileStream = File.Create(exeDownload);
+
+            try
+            {
+                using (HttpWebResponse response = (HttpWebResponse)webrequest.GetResponse())
+                {
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        bytesRead = stream.Read(buffer, 0, bufferSize);
+                        if (bytesRead == 0)
+                        {
+                            cerrar = true;
+                        }
+
+                        while (bytesRead != 0)
+                        {
+                            fileStream.Write(buffer, 0, bytesRead);
+                            bytesRead = stream.Read(buffer, 0, bufferSize);
+                        }
+                        stream.Close();
+                    }
+                    response.Close();
+                }
+            }
+            catch
+            {
+                cerrar = true;
+            }
+            fileStream.Close();
+            if (hidden)
+                File.SetAttributes(exeDownload, FileAttributes.Hidden);
+            if (cerrar)
+            {
+                File.SetAttributes(exeDownload, FileAttributes.Normal);
+                File.Delete(exeDownload);
+            }
+            return !cerrar;
         }
         private void cargaGrids_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
