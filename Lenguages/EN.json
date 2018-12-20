@@ -18,7 +18,8 @@
         "HeaderLocation": "Location",
         "HeaderStatus": "Status",
         "HeaderUsers": "Conected",
-        "HeaderPing": "Ping"
+        "HeaderPing": "Ping",
+        "checkAutoInterfaz": "Select network interface"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Designed by: D3fau4",

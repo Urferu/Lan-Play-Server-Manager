@@ -19,7 +19,8 @@
         "HeaderLocation": "Ubicación",
         "HeaderStatus": "Estatus",
         "HeaderUsers": "Conectados",
-        "HeaderPing": "Latencia"
+        "HeaderPing": "Latencia",
+        "checkAutoInterfaz": "Seleccionar interfaz de red"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Diseñado por: D3fau4",
