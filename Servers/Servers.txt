@@ -10,3 +10,4 @@ relay.it-cybergate.club,EU-(Germany)
 177.54.110.45,Brazil
 slp.rush-hour.wo.tc,Korea
 lithium2g.ddns.net,Australia
+switch.goffy.tk,Norway
