@@ -19,10 +19,10 @@
         "HeaderStatus": "Статус",
         "HeaderUsers": "Подключено",
         "HeaderPing": "Пинг",
-        "checkAutoInterfaz": "Выберите интерфейс",
-        "UpdateMessage": "Существует новая версия. \nВы хотите обновить?",
-        "ButtonLastVersionLP": "Последняя версия",
-        "ToolTipLastVersionLP": "Получить последнюю версию Lan-Play"
+        "checkAutoInterfaz": "Выбрать Интерфейс",
+            "UpdateMessage": "Доступно обновление\n Хотите обновиться?",
+            "ButtonLastVersionLP": "Последняя версия",
+            "ToolTipLastVersionLP": "Обновиться до последней версии"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Придумано: D3fau4",
