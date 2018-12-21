@@ -18,7 +18,11 @@
         "HeaderLocation": "Местонахождение",
         "HeaderStatus": "Статус",
         "HeaderUsers": "Подключено",
-        "HeaderPing": "Пинг"
+        "HeaderPing": "Пинг",
+        "checkAutoInterfaz": "Выберите интерфейс",
+        "UpdateMessage": "Существует новая версия. \nВы хотите обновить?",
+        "ButtonLastVersionLP": "Последняя версия",
+        "ToolTipLastVersionLP": "Получить последнюю версию Lan-Play"
     },
     "StringsCreditsLenguages": {
         "DesignedBy": "Придумано: D3fau4",
