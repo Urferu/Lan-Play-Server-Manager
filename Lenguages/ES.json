@@ -1,35 +1,57 @@
 ﻿{
-    "StringsPrincipalLenguages": {
-        "ButtonConnect": "Conectar",
-        "ToolTipConnect": "Conecta al servidor seleccionado",
-        "ButtonDisconnect": "Desconectar",
-        "Servers": "Servidores",
-        "ServersLoading": "Servidores (Cargando...)",
-        "ButtonReload": "Refrescar Servidores",
-        "ToolTipReload": "Refresca la lista de servidores",
-        "ToolTipMTU": "Redirecciona a una herramienta para obtener tu mtu ideal",
-        "ToolTipMTUValue": "MTU que se utilizará para la conexión,\nsi utilizas tu mtu ideal puedes reducir el lag.",
-        "ShowConsole": "Mostrar Consola",
-        "ShowConsoleToolTip": "Muestra la información de la consola lan-play",
-        "ButtonCredits": "Créditos",
-        "Credits": "Muestra la información de la consola de lan-play.",
-        "LanPlayConsoleLabel": "Aqui se aparecera la información de lan-play",
-        "LanPlayVersionLabel": "Versión de Lan-Play",
-        "HeaderServer": "Servidor",
-        "HeaderLocation": "Ubicación",
-        "HeaderStatus": "Estatus",
-        "HeaderUsers": "Conectados",
-        "HeaderPing": "Latencia",
-        "checkAutoInterfaz": "Seleccionar interfaz",
+  "StringsPrincipalLenguages": {
+    "ButtonConnect": "Conectar",
+    "ToolTipConnect": "Conecta al servidor seleccionado",
+    "ButtonDisconnect": "Desconectar",
+    "Servers": "Servidores",
+    "ServersLoading": "Servidores (Cargando...)",
+    "ButtonReload": "Refrescar Servidores",
+    "ToolTipReload": "Refresca la lista de servidores",
+    "ToolTipMTU": "Redirecciona a una herramienta para obtener tu mtu ideal",
+    "ToolTipMTUValue": "MTU que se utilizará para la conexión,\nsi utilizas tu mtu ideal puedes reducir el lag.",
+    "ShowConsole": "Mostrar Consola",
+    "ShowConsoleToolTip": "Muestra la información de la consola lan-play",
+    "ButtonCredits": "Créditos",
+    "Credits": "Muestra la información de la consola de lan-play.",
+    "LanPlayConsoleLabel": "Aqui se aparecera la información de lan-play",
+    "LanPlayVersionLabel": "Versión de Lan-Play",
+    "HeaderServer": "Servidor",
+    "HeaderLocation": "Ubicación",
+    "HeaderStatus": "Estatus",
+    "HeaderUsers": "Conectados",
+    "HeaderPing": "Latencia",
+    "checkAutoInterfaz": "Seleccionar interfaz",
 		"UpdateMessage": "Hay una nueva versión.\n¿Quieres actualizar?",
 		"ButtonLastVersionLP": "Ultíma Versión",
-		"ToolTipLastVersionLP": "Obtiene la ultima versión de Lan-Play"
-    },
-    "StringsCreditsLenguages": {
-        "DesignedBy": "Diseñado por: D3fau4",
-        "DevelopedBy": "Desarrollado por: Urferu",
-        "ListServers": "Lista de servidores por: Clock",
-        "SupportedBy": "Distribuido y apoyado por:",
-        "FollowOn": "Siguenos en:"
-    }
+		"ToolTipLastVersionLP": "Obtiene la ultima versión de Lan-Play",
+    "ButtonSettings": "Configuración",
+    "ButtonAddServer": "Agregar Servidor",
+    "NoFound": "No se encontraron servidores."
+  },
+  "StringsCreditsLenguages": {
+    "DesignedBy": "Diseñado por: D3fau4 & Urferu",
+    "DevelopedBy": "Desarrollado por: Urferu",
+    "ListServers": "Lista de servidores por: Clock",
+    "SupportedBy": "Distribuido y apoyado por:",
+    "FollowOn": "Siguenos en:"
+  },
+  "StringsMessage": {
+    "PleaseWait": "Espere por favor",
+    "Connecting": "Conectando",
+    "Disconnecting": "Desconectando",
+    "ServerConnected": "Ya hay un servidor conectado.\n¿Desea desconectarse del servidor actual para conectarse al nuevo servidor?",
+    "ButtonYes": "Si",
+    "ButtonNo": "No",
+    "NeedIpServer": "Es enecesario capturar la ip o dns del servidor.",
+    "NeedAbbreviation": "Es necesario capturar la abreviación de la ubicación del servidor.",
+    "ServerAlready": "Elservidor ya se encuentra en la lista de servidores."
+  },
+  "ModalStrings": {
+    "TitleNewServer": "Nuevo Servidor",
+    "IpDnsServer": "Ip o DNS del servidor",
+    "AbreviationLocation": "Abreviación de la ubicación",
+    "LocationName": "Nombre de ubicación",
+    "ButtonCancel": "Cancelar",
+    "ButtonOk": "Aceptar"
+  }
 }
