@@ -14,6 +14,7 @@
     "Credits": "Show the information of the lan-play console",
     "ButtonCredits": "Credits",
     "LanPlayConsoleLabel": "Here is what launches the lan play console",
+    "LanPlayVersionLabel": "Lan-Play Version",
     "HeaderServer": "Server",
     "HeaderLocation": "Location",
     "HeaderStatus": "Status",
