@@ -3,6 +3,7 @@ nycnsw.duckdns.org,US-NYC
 nxlan.duckdns.org,US-Northwest WA
 pcoh.ddns.net,US-TN
 fr.fadx.co.uk,EU-(France)
+switch.lan-play.com,EU-(France)
 switch.glaciergaming.co.uk,EU-(UK)
 switch.homelab.tech,EU-(UK)
 memehouse.de,EU-(Germany)
