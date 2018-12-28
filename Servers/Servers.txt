@@ -1,4 +1,4 @@
-35.236.10.223,US-West CA
+lanplay.zeatnolt.com,US-West CA
 nycnsw.duckdns.org,US-NYC
 nxlan.duckdns.org,US-Northwest WA
 pcoh.ddns.net,US-TN
