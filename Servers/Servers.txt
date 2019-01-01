@@ -12,3 +12,4 @@ relay.it-cybergate.club,EU-(Germany)
 slp.rush-hour.wo.tc,Korea
 lithium2g.ddns.net,Australia
 switch.goffy.tk,EU-(Norway)
+jp.nx-s.cf,Japan
