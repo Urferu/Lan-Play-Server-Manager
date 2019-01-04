@@ -2,7 +2,7 @@
 18.191.92.182,US - Urferu
 nxlan.duckdns.org,US-Northwest WA
 pcoh.ddns.net,US-TN
-us.nx-s.cf, US-East
+us.nx-s.cf,US-East
 fr.fadx.co.uk,EU-(France)
 switch.lan-play.com,EU-(France)
 switch.glaciergaming.co.uk,EU-(UK)
