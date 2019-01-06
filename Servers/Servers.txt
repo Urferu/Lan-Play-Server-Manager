@@ -9,6 +9,7 @@ switch.glaciergaming.co.uk,EU-(UK)
 switch.homelab.tech,EU-(UK)
 memehouse.de,EU-(Germany)
 relay.it-cybergate.club,EU-(Germany)
+213.37.202.129,EU-(Spain)
 bandits.duckdns.org,EU-(Spain)
 euplay.secretalgorithm.com,EU-(Lithuania)
 177.54.110.45,Brazil
