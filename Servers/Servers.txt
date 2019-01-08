@@ -19,6 +19,6 @@ nswbr.ddns.net,Brasil
 185.233.117.26,Rusia
 switch.adelphia.xyz,Singapour Reika
 slp.rush-hour.wo.tc,Korea
-203.33.252.111,Australia
-lithium2g.ddns.net,Australia
+switch-lan-westaus.ddns.net,Australia West
+switch-lan-eastaus.ddns.net,Australia East
 jp.nx-s.cf,Japan
