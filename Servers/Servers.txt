@@ -1,4 +1,4 @@
-gee19.com, US-NEO
+gee19.com,US-NEO
 200.120.118.142,Chile - Modgames
 18.191.92.182,US - Urferu
 nxlan.duckdns.org,US-Northwest WA
