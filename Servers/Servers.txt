@@ -1,6 +1,7 @@
 gee19.com,US-NEO
 172.104.213.229,(gee19IP)US-NEO
 200.120.118.142,Chile - Modgames
+128.ip-158-69-206.net, CA - Urferu
 18.191.92.182,US - Urferu
 nxlan.duckdns.org,US-Northwest WA
 pcoh.ddns.net,US-TN
