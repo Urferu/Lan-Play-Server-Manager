@@ -1,27 +1,13 @@
-gee19.com,US-NEO
+34.69.148.75,USA
 172.104.213.229,(gee19IP)US-NEO
 200.120.118.142,Chile - Modgames
-128.ip-158-69-206.net, CA - Urferu
 18.191.92.182,US - Urferu
-nxlan.duckdns.org,US-Northwest WA
-pcoh.ddns.net,US-TN
-us.nx-s.cf,US-East
-qcswitch.ddns.net,Canada
-fr.fadx.co.uk,EU-(France)
+nxlan.duckdns.org,US-Northwest W
 switch.lan-play.com,EU-(France)
 switch.glaciergaming.co.uk,EU-(UK)
-switch.homelab.tech,EU-(UK)
-memehouse.de,EU-(Germany)
 relay.it-cybergate.club,EU-(Germany)
 213.37.202.129,EU-(Spain)
 bandits.duckdns.org,EU-(Spain)
 euplay.secretalgorithm.com,EU-(Lithuania)
-switch.goffy.tk,EU-(Norway)
-177.54.110.45,Brazil
-nswbr.ddns.net,Brasil
 185.233.117.26,Rusia
-switch.adelphia.xyz,Singapour Reika
-slp.rush-hour.wo.tc,Korea
-au-west.switch.lan-play.com,Australia West
 au-east.switch.lan-play.com,Australia East
-jp.nx-s.cf,Japan
