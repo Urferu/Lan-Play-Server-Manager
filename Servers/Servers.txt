@@ -4,8 +4,10 @@
 18.191.92.182,US - Urferu
 nxlan.duckdns.org,US-Northwest W
 switch.lan-play.com,EU-(France)
-switch.glaciergaming.co.uk,EU-(UK)
-relay.it-cybergate.club,EU-(Germany)
+lanplay.reboot.ms,EU-(Netherlands)
+frog-skins.com, US-USA
+north-lanplay.ddns.net, CA-Canada
+ lanplay2.reboot.ms, EU-(Romania)
 213.37.202.129,EU-(Spain)
 bandits.duckdns.org,EU-(Spain)
 euplay.secretalgorithm.com,EU-(Lithuania)
