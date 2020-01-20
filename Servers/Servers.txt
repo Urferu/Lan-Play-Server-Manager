@@ -5,11 +5,11 @@
 nxlan.duckdns.org,US-Northwest W
 switch.lan-play.com,EU-(France)
 lanplay.reboot.ms,EU-(Netherlands)
-frog-skins.com, US-USA
-north-lanplay.ddns.net, CA-Canada
-lanplay2.reboot.ms, EU-(Romania)
-213.37.202.129,EU-(Spain)
-bandits.duckdns.org,EU-(Spain)
-euplay.secretalgorithm.com,EU-(Lithuania)
+frog-skins.com,US - USA
+north-lanplay.ddns.net,CA - Canada
+lanplay2.reboot.ms,EU - (Romania)
+213.37.202.129,EU - (Spain)
+bandits.duckdns.org,EU - (Spain)
+euplay.secretalgorithm.com,EU - (Lithuania)
 185.233.117.26,Rusia
 au-east.switch.lan-play.com,Australia East
