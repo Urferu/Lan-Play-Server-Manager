@@ -1,12 +1,11 @@
-34.69.148.75,USA
 172.104.213.229,(gee19IP)US-NEO
-200.120.118.142,Chile - Modgames
 18.191.92.182,US - Urferu
 nxlan.duckdns.org,US-Northwest W
 switch.lan-play.com,EU-(France)
 lanplay.reboot.ms,EU-(Netherlands)
 jayseateam.nl,EU-(Netherlands)
 frog-skins.com,US - USA
+nut.r3n3.at, EU- (Austria)
 north-lanplay.ddns.net,CA - Canada
 lanplay2.reboot.ms,EU - (Romania)
 213.37.202.129,EU - (Spain)
