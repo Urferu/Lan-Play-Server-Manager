@@ -5,7 +5,7 @@ switch.lan-play.com,EU-(France)
 lanplay.reboot.ms,EU-(Netherlands)
 jayseateam.nl,EU-(Netherlands)
 frog-skins.com,US - USA
-nut.r3n3.at, EU- (Austria)
+nut.r3n3.at,EU- (Austria)
 north-lanplay.ddns.net,CA - Canada
 lanplay2.reboot.ms,EU - (Romania)
 213.37.202.129,EU - (Spain)
