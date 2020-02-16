@@ -1,13 +1,14 @@
 172.104.213.229,(gee19IP)US-NEO
 18.191.92.182,US - Urferu
-nxlan.duckdns.org,US-Northwest W
-switch.lan-play.com,EU-(France)
-lanplay.reboot.ms,EU-(Netherlands)
-jayseateam.nl,EU-(Netherlands)
+switch.lan-play.com,EU - (France)
+lanplay.reboot.ms,EU - (Netherlands)
+jayseateam.nl,EU - (Netherlands)
 frog-skins.com,US - USA
-nut.r3n3.at,EU- (Austria)
 north-lanplay.ddns.net,CA - Canada
 lanplay2.reboot.ms,EU - (Romania)
-213.37.202.129,EU - (Spain)
+nut.r3n3.at,EU- (Austria)
+bluehouse.servepics.com,Mx - Mexico
+epicna.ddns.net,CA - Canada
+kirbfeels.throwbackcountdown.com,US - USA
 bandits.duckdns.org,EU - (Spain)
 au-east.switch.lan-play.com,Australia East
