@@ -11,8 +11,5 @@ open.t0g3pii.de,EU - (Germany)
 nook-hq.ml,EU - (Germany)
 frog-skins.com,US - USA
 nxlan-w.dentora.ca,US - USA
-aclanplay.servegame.org,US - USA
-epicna.ddns.net,CA - Canada
-kirbfeels.throwbackcountdown.com,US - USA
 bandits.duckdns.org,EU - (Spain)
 switch.0mn1b0x.com,Australia
