@@ -1,15 +1,14 @@
-172.104.213.229,(gee19IP)US-NEO
-18.191.92.182,US - Urferu
 switch.lan-play.com,EU - (France)
 lanplay.reboot.ms,EU - (Netherlands)
+nook-inc.net,EU - (France)
+frog-skins.com,US - USA
+nxlan-w.dentora.ca,US - USA
+nxlan-e.dentora.ca,US - USA
+lanplay.duckdns.org, BR - Brazil
 jayseateam.nl,EU - (Netherlands)
 switch.jayseateam.nl,EU - (Netherlands)
+open.t0g3pii.de,EU - (Germany)
+nook-hq.ml,EU - (Germany)
 lanplay.r3n3.at,EU - (Austria)
 lanplay2.reboot.ms,EU - (Great Britain)
 nut.r3n3.at,EU - (Austria)
-open.t0g3pii.de,EU - (Germany)
-nook-hq.ml,EU - (Germany)
-frog-skins.com,US - USA
-nxlan-w.dentora.ca,US - USA
-bandits.duckdns.org,EU - (Spain)
-switch.0mn1b0x.com,Australia
