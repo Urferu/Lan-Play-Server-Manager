@@ -1,14 +1,13 @@
 switch.lan-play.com,EU - (France)
 lanplay.reboot.ms,EU - (Netherlands)
 nook-inc.net,EU - (France)
-frog-skins.com,US - USA
-nxlan-w.dentora.ca,US - USA
-nxlan-e.dentora.ca,US - USA
-lanplay.duckdns.org, BR - Brazil
+frog-skins.com,US - USA Rust
+nxlan-w.dentora.ca,US - USA West Rust
+nxlan-e.dentora.ca,US - USA East Rust
+lanplay.duckdns.org,BR - Brazil
 jayseateam.nl,EU - (Netherlands)
 switch.jayseateam.nl,EU - (Netherlands)
 open.t0g3pii.de,EU - (Germany)
-nook-hq.ml,EU - (Germany)
-lanplay.r3n3.at,EU - (Austria)
-lanplay2.reboot.ms,EU - (Great Britain)
-nut.r3n3.at,EU - (Austria)
+bluehouse.servepics.com,MX - Mexico
+localhost.boroghor.com,US - USA Rust
+joinsg.net,US - USA Rust
